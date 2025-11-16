@@ -19,6 +19,43 @@ art/
 
 ---
 
+## 🎨 Logo Variants
+
+### Text Logos (Wordmarks)
+
+#### Color Text Logo (`pioneer-text.svg`)
+Full-color gradient green wordmark with custom typography.
+
+![Pioneer Text Color](pioneer-text.svg)
+
+**Path:** `pioneer-text.svg`  
+**Size:** 700×300px (7.9KB)  
+**Use:** Branding, marketing materials, website headers, light backgrounds
+
+---
+
+#### Black Text Logo (`pioneer-text-logo-black.svg`)
+Black wordmark for light backgrounds or print materials.
+
+![Pioneer Text Black](pioneer-text-logo-black.svg)
+
+**Path:** `pioneer-text-logo-black.svg`  
+**Size:** 700×300px (7.4KB)  
+**Use:** Print materials, minimalist designs, light backgrounds
+
+---
+
+#### White Text Logo (`pioneer-text-white.svg`)
+White wordmark for dark backgrounds.
+
+![Pioneer Text White](pioneer-text-white.svg)
+
+**Path:** `pioneer-text-white.svg`  
+**Size:** 700×300px (7.3KB)  
+**Use:** Dark backgrounds, dark mode interfaces, overlays
+
+---
+
 ## 🎨 Icon Variants
 
 ### Color Icons (`icons-color/`)
