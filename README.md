@@ -279,9 +279,3 @@ cargo tauri icon pioneer-logo-white.svg -o icons-white --ios-color "#000000" -v
 ## 📄 License
 
 Pioneer brand assets - All rights reserved.
-
----
-
-**Generated with:** Tauri CLI v2.x icon generator  
-**Last updated:** November 16, 2025
-
