@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer Cloudflare feedback panels</title>
+  <desc id="desc">Reusable brand pattern for Wrangler and Cloudflare service feedback.</desc>
+  
+  <defs>
+    <linearGradient id="pattern-cloudflare-bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4F7EF"/>
+      <stop offset=".58" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF2E4"/>
+    </linearGradient>
+    <radialGradient id="pattern-cloudflare-glow-a" cx="22%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#A5DBB7" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#A5DBB7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pattern-cloudflare-glow-b" cx="86%" cy="86%" r="48%">
+      <stop offset="0" stop-color="#D9A441" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#D9A441" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="pattern-cloudflare-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="rgba(22,26,23,.055)" stroke-width="1"/>
+    </pattern>
+    <filter id="pattern-cloudflare-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0A0A0A" flood-opacity=".20"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#pattern-cloudflare-bg)"/>
+  <rect width="1440" height="900" fill="url(#pattern-cloudflare-glow-a)"/>
+  <rect width="1440" height="900" fill="url(#pattern-cloudflare-glow-b)"/>
+  <rect width="1440" height="900" fill="url(#pattern-cloudflare-grid)"/>
+  <text x="96" y="108" fill="#D9A441" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0">Pattern / Wrangler</text>
+  <text x="96" y="210" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="76" font-weight="800" letter-spacing="0">What Pioneer ran</text>
+<text x="96" y="284.48" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="76" font-weight="800" letter-spacing="0">from the code</text>
+  <g transform="translate(96 430)">
+    <g transform="translate(0 0)">
+      <rect width="220" height="134" rx="18" fill="#FFFFFF" stroke="#D9A441" filter="url(#pattern-cloudflare-shadow)"/>
+      <text x="22" y="42" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="850">Worker</text>
+      <text x="22" y="74" fill="#59645A" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="700">checkout-app</text>
+      <rect x="22" y="94" width="128" height="28" rx="14" fill="#A5DBB7" opacity=".32"/>
+      <text x="36" y="113" fill="#2D7A3E" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800">Running locally</text>
+    </g><g transform="translate(246 0)">
+      <rect width="220" height="134" rx="18" fill="#FFFFFF" stroke="#DCE5D7" filter="url(#pattern-cloudflare-shadow)"/>
+      <text x="22" y="42" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="850">Bindings</text>
+      <text x="22" y="74" fill="#59645A" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="700">DB + Cache + Queue</text>
+      <rect x="22" y="94" width="128" height="28" rx="14" fill="#A5DBB7" opacity=".32"/>
+      <text x="36" y="113" fill="#2D7A3E" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800">Auto-wired</text>
+    </g><g transform="translate(492 0)">
+      <rect width="220" height="134" rx="18" fill="#FFFFFF" stroke="#DCE5D7" filter="url(#pattern-cloudflare-shadow)"/>
+      <text x="22" y="42" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="850">D1</text>
+      <text x="22" y="74" fill="#59645A" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="700">orders table</text>
+      <rect x="22" y="94" width="128" height="28" rx="14" fill="#A5DBB7" opacity=".32"/>
+      <text x="36" y="113" fill="#2D7A3E" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800">Orders saved</text>
+    </g><g transform="translate(738 0)">
+      <rect width="220" height="134" rx="18" fill="#FFFFFF" stroke="#DCE5D7" filter="url(#pattern-cloudflare-shadow)"/>
+      <text x="22" y="42" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="850">Queue</text>
+      <text x="22" y="74" fill="#59645A" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="700">receipt worker</text>
+      <rect x="22" y="94" width="128" height="28" rx="14" fill="#A5DBB7" opacity=".32"/>
+      <text x="36" y="113" fill="#2D7A3E" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800">Queued</text>
+    </g><g transform="translate(984 0)">
+      <rect width="220" height="134" rx="18" fill="#FFFFFF" stroke="#DCE5D7" filter="url(#pattern-cloudflare-shadow)"/>
+      <text x="22" y="42" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="850">Analytics</text>
+      <text x="22" y="74" fill="#59645A" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="700">logs + traces</text>
+      <rect x="22" y="94" width="128" height="28" rx="14" fill="#A5DBB7" opacity=".32"/>
+      <text x="36" y="113" fill="#2D7A3E" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800">Observable</text>
+    </g>
+  </g>
+  <rect x="330" y="625" width="770" height="112" rx="18" fill="#FFF7ED" stroke="#FDBA74"/>
+  <text x="370" y="672" fill="#9A3412" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="26" font-weight="850">127.0.0.1:8789 / checkout-app</text>
+  <text x="370" y="711" fill="#59645A" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="700">POST /checkout -> 201 Created</text>
+</svg>

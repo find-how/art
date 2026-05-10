@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer Build locally. Deploy deliberately.</title>
+  <desc id="desc">Route-driven application code with inferred edge services and Wrangler feedback.</desc>
+  
+  <defs>
+    <linearGradient id="docs-header-svg-bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4F7EF"/>
+      <stop offset=".58" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF2E4"/>
+    </linearGradient>
+    <radialGradient id="docs-header-svg-glow-a" cx="22%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#A5DBB7" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#A5DBB7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="docs-header-svg-glow-b" cx="86%" cy="86%" r="48%">
+      <stop offset="0" stop-color="#D9A441" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#D9A441" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="docs-header-svg-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="rgba(22,26,23,.055)" stroke-width="1"/>
+    </pattern>
+    <filter id="docs-header-svg-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0A0A0A" flood-opacity=".20"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#docs-header-svg-bg)"/>
+  <rect width="1600" height="900" fill="url(#docs-header-svg-glow-a)"/>
+  <rect width="1600" height="900" fill="url(#docs-header-svg-glow-b)"/>
+  <rect width="1600" height="900" fill="url(#docs-header-svg-grid)"/>
+  
+  <g transform="translate(1340 650) scale(0.42)">
+    <defs>
+      <linearGradient id="docs-header-svg-bird-g" x1="8" y1="17" x2="500" y2="493" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#2D7A3E"/>
+        <stop offset=".52" stop-color="#4A9D5F"/>
+        <stop offset="1" stop-color="#7CB342"/>
+      </linearGradient>
+      <linearGradient id="docs-header-svg-bird-w" x1="230" y1="50" x2="500" y2="170" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#4A9D5F"/>
+        <stop offset="1" stop-color="#B8EA4F"/>
+      </linearGradient>
+    </defs>
+    <path fill="url(#docs-header-svg-bird-g)" d="M8 110 46 73 46 110Z"/>
+    <path fill="url(#docs-header-svg-bird-g)" d="M56 66H96L170 153 133 190H56Z"/>
+    <path fill="url(#docs-header-svg-bird-g)" d="M150 190 305 26 305 190Z"/>
+    <path fill="url(#docs-header-svg-bird-w)" d="M317 17 486 23 317 177Z"/>
+    <path fill="url(#docs-header-svg-bird-w)" d="M421 99 500 55 474 46Z"/>
+    <path fill="url(#docs-header-svg-bird-g)" d="M64 202H303L237 383Z"/>
+    <path fill="url(#docs-header-svg-bird-g)" d="M307 229 306 493 227 440Z"/>
+  </g>
+  <rect x="88" y="77" width="1424" height="747" rx="28" fill="rgba(255,255,255,.66)" stroke="rgba(22,26,23,.10)"/>
+  <text x="144" y="153" fill="#2D7A3E" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0">Pioneer Docs</text>
+  <text x="144" y="279" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="0">Build locally.</text>
+<text x="144" y="355.44" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="0">Deploy deliberately.</text>
+  <text x="144" y="621" fill="#4B554C" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="31" font-weight="650">Route-driven application code with inferred edge services and Wrangler feedback.</text>
+  
+  <g filter="url(#docs-header-svg-shadow)">
+    <clipPath id="docs-header-svg-codeclip">
+      <rect x="960" y="207" width="512" height="272" rx="18"/>
+    </clipPath>
+    <rect x="960" y="207" width="512" height="272" rx="18" fill="#0A0A0A" stroke="#262626"/>
+    <rect x="960" y="207" width="512" height="48" rx="18" fill="#171717"/>
+    <circle cx="986" cy="231" r="6" fill="#EF4444"/>
+    <circle cx="1008" cy="231" r="6" fill="#F59E0B"/>
+    <circle cx="1030" cy="231" r="6" fill="#22C55E"/>
+    <text x="1056" y="238" fill="#A5DBB7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16" font-weight="700">app/routes/web.ts</text>
+    <g clip-path="url(#docs-header-svg-codeclip)">
+      
+      <rect x="980" y="257" width="442" height="28" rx="6" fill="#7DD3FC" opacity=".09"/>
+      <text x="990" y="279" fill="#7DD3FC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">Route.post('/checkout', async ({ request, DB, Queue, Cache }) =&gt; {</text>
+      <rect x="980" y="290" width="392" height="28" rx="6" fill="#86EFAC" opacity=".09"/>
+      <text x="990" y="312" fill="#86EFAC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  const order = await DB.table('orders').create(await request.json())</text>
+      <rect x="980" y="323" width="392" height="28" rx="6" fill="#FACC15" opacity=".09"/>
+      <text x="990" y="345" fill="#FACC15" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  Cache.set(`order:${order.id}`, order, { ttl: 60 * 15 })</text>
+      <rect x="980" y="356" width="392" height="28" rx="6" fill="#38BDF8" opacity=".09"/>
+      <text x="990" y="378" fill="#38BDF8" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  await Queue.dispatch('send-receipt', { orderId: order.id })</text>
+      <rect x="980" y="389" width="392" height="28" rx="6" fill="#FB923C" opacity=".09"/>
+      <text x="990" y="411" fill="#FB923C" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  return Response.json(order, { status: 201 })</text>
+      <rect x="980" y="422" width="392" height="28" rx="6" fill="#A5DBB7" opacity=".09"/>
+      <text x="990" y="444" fill="#A5DBB7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">}).middleware(['auth', 'verified'])</text>
+    </g>
+  </g>
+  <text x="144" y="756" fill="#161A17" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="22" font-weight="700">find.how/pioneer</text>
+</svg>

@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+
+<section class="pioneer-edge-artisan">
+  <div id="edge-artisan-terminal"></div>
+  <button type="button" data-run-edge-artisan>
+    Run artisan on edge
+  </button>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+<script>
+  const terminal = new Terminal({
+    cursorBlink: true,
+    convertEol: true,
+    fontFamily: '"Commit Mono", ui-monospace, SFMono-Regular, Consolas, monospace',
+    theme: {
+      background: "#070707",
+      foreground: "#d4d4d4",
+      cursor: "#86efac"
+    }
+  });
+
+  terminal.open(document.getElementById("edge-artisan-terminal"));
+  terminal.writeln("\x1b[32m$ php artisan edge:report orders --queue\x1b[0m");
+</script>

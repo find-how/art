@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer service binding pulse</title>
+  <desc id="desc">Animated service binding pulse pattern.</desc>
+  <defs>
+    <style>
+      .node { animation: pulse 1900ms ease-in-out infinite; transform-origin: center; }
+      .node:nth-child(2) { animation-delay: 140ms; }
+      .node:nth-child(3) { animation-delay: 280ms; }
+      .node:nth-child(4) { animation-delay: 420ms; }
+      .node:nth-child(5) { animation-delay: 560ms; }
+      .link { stroke-dasharray: 14 16; animation: dash 1200ms linear infinite; }
+      @keyframes pulse { 0%, 100% { filter: brightness(1); transform: scale(1); } 45% { filter: brightness(1.18); transform: scale(1.04); } }
+      @keyframes dash { to { stroke-dashoffset: -60; } }
+      @media (prefers-reduced-motion: reduce) { .node, .link { animation: none; } }
+    </style>
+  </defs>
+  <rect width="720" height="405" fill="#F4F7EF"/>
+  <path class="link" d="M92 202H628" fill="none" stroke="#2D7A3E" stroke-width="5" stroke-linecap="round"/>
+  <g font-family="Inter, Arial, sans-serif" font-size="20" font-weight="850">
+    <g class="node" transform="translate(74 152)">
+      <rect width="112" height="96" rx="20" fill="#2D7A3E"/>
+      <text x="56" y="56" text-anchor="middle" fill="#FFFFFF">Route</text>
+    </g><g class="node" transform="translate(206 152)">
+      <rect width="112" height="96" rx="20" fill="#161A17"/>
+      <text x="56" y="56" text-anchor="middle" fill="#FFFFFF">DB</text>
+    </g><g class="node" transform="translate(338 152)">
+      <rect width="112" height="96" rx="20" fill="#2D7A3E"/>
+      <text x="56" y="56" text-anchor="middle" fill="#FFFFFF">Cache</text>
+    </g><g class="node" transform="translate(470 152)">
+      <rect width="112" height="96" rx="20" fill="#161A17"/>
+      <text x="56" y="56" text-anchor="middle" fill="#FFFFFF">Queue</text>
+    </g><g class="node" transform="translate(602 152)">
+      <rect width="112" height="96" rx="20" fill="#2D7A3E"/>
+      <text x="56" y="56" text-anchor="middle" fill="#FFFFFF">Auth</text>
+    </g>
+  </g>
+</svg>

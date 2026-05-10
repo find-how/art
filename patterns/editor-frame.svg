@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer editor frame</title>
+  <desc id="desc">Reusable brand pattern for AI-generated code in Monaco-style editor chrome.</desc>
+  
+  <defs>
+    <linearGradient id="pattern-editor-bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A0A0A"/>
+      <stop offset=".58" stop-color="#101A13"/>
+      <stop offset="1" stop-color="#183522"/>
+    </linearGradient>
+    <radialGradient id="pattern-editor-glow-a" cx="22%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#A5DBB7" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#A5DBB7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pattern-editor-glow-b" cx="86%" cy="86%" r="48%">
+      <stop offset="0" stop-color="#D9A441" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#D9A441" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="pattern-editor-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    </pattern>
+    <filter id="pattern-editor-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0A0A0A" flood-opacity=".46"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#pattern-editor-bg)"/>
+  <rect width="1440" height="900" fill="url(#pattern-editor-glow-a)"/>
+  <rect width="1440" height="900" fill="url(#pattern-editor-glow-b)"/>
+  <rect width="1440" height="900" fill="url(#pattern-editor-grid)"/>
+  <text x="96" y="108" fill="#A5DBB7" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0">Pattern / Editor</text>
+  <text x="96" y="210" fill="#FFFFFF" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="74" font-weight="800" letter-spacing="0">Generated code</text>
+<text x="96" y="282.52" fill="#FFFFFF" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="74" font-weight="800" letter-spacing="0">to edge services</text>
+  
+  <g filter="url(#pattern-editor-shadow)">
+    <clipPath id="pattern-editor-codeclip">
+      <rect x="560" y="128" width="760" height="302" rx="18"/>
+    </clipPath>
+    <rect x="560" y="128" width="760" height="302" rx="18" fill="#0A0A0A" stroke="#262626"/>
+    <rect x="560" y="128" width="760" height="48" rx="18" fill="#171717"/>
+    <circle cx="586" cy="152" r="6" fill="#EF4444"/>
+    <circle cx="608" cy="152" r="6" fill="#F59E0B"/>
+    <circle cx="630" cy="152" r="6" fill="#22C55E"/>
+    <text x="656" y="159" fill="#A5DBB7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16" font-weight="700">app/routes/web.ts</text>
+    <g clip-path="url(#pattern-editor-codeclip)">
+      
+      <rect x="580" y="178" width="690" height="28" rx="6" fill="#7DD3FC" opacity=".09"/>
+      <text x="590" y="200" fill="#7DD3FC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">Route.post('/checkout', async ({ request, DB, Queue, Cache }) =&gt; {</text>
+      <rect x="580" y="216" width="640" height="28" rx="6" fill="#86EFAC" opacity=".09"/>
+      <text x="590" y="238" fill="#86EFAC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  const order = await DB.table('orders').create(await request.json())</text>
+      <rect x="580" y="254" width="640" height="28" rx="6" fill="#FACC15" opacity=".09"/>
+      <text x="590" y="276" fill="#FACC15" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  Cache.set(`order:${order.id}`, order, { ttl: 60 * 15 })</text>
+      <rect x="580" y="292" width="640" height="28" rx="6" fill="#38BDF8" opacity=".09"/>
+      <text x="590" y="314" fill="#38BDF8" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  await Queue.dispatch('send-receipt', { orderId: order.id })</text>
+      <rect x="580" y="330" width="640" height="28" rx="6" fill="#FB923C" opacity=".09"/>
+      <text x="590" y="352" fill="#FB923C" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  return Response.json(order, { status: 201 })</text>
+      <rect x="580" y="368" width="640" height="28" rx="6" fill="#A5DBB7" opacity=".09"/>
+      <text x="590" y="390" fill="#A5DBB7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">}).middleware(['auth', 'verified'])</text>
+    </g>
+  </g>
+  <g transform="translate(96 610)">
+    <rect x="0" y="0" width="112" height="54" rx="27" fill="#2D7A3E"/><text x="56" y="35" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="800">Route</text><rect x="136" y="0" width="112" height="54" rx="27" fill="#456275"/><text x="192" y="35" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="800">D1</text><rect x="272" y="0" width="112" height="54" rx="27" fill="#2D7A3E"/><text x="328" y="35" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="800">Cache</text><rect x="408" y="0" width="112" height="54" rx="27" fill="#456275"/><text x="464" y="35" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="800">Queue</text><rect x="544" y="0" width="112" height="54" rx="27" fill="#2D7A3E"/><text x="600" y="35" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="800">Auth</text>
+  </g>
+</svg>

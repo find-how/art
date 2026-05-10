@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer terminal stream</title>
+  <desc id="desc">Animated terminal streaming pattern.</desc>
+  <defs>
+    <style>
+      .term-line { opacity: 0; animation: line 2200ms steps(1, end) infinite; }
+      .term-line:nth-child(2) { animation-delay: 300ms; }
+      .term-line:nth-child(3) { animation-delay: 650ms; }
+      .term-line:nth-child(4) { animation-delay: 1000ms; }
+      .cursor { animation: blink 700ms steps(2, start) infinite; }
+      @keyframes line { 0%, 8% { opacity: 0; } 12%, 90% { opacity: 1; } 100% { opacity: 0; } }
+      @keyframes blink { 50% { opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { .term-line, .cursor { animation: none; opacity: 1; } }
+    </style>
+  </defs>
+  <rect width="720" height="405" fill="#070707"/>
+  <rect x="56" y="50" width="608" height="302" rx="18" fill="#0A0A0A" stroke="#262626"/>
+  <rect x="56" y="50" width="608" height="48" rx="18" fill="#171717"/>
+  <text x="88" y="82" fill="#A3A3A3" font-family="Commit Mono, Consolas, monospace" font-size="16" font-weight="800">pioneer deploy --local</text>
+  <g transform="translate(88 144)" font-family="Commit Mono, Consolas, monospace" font-size="18" font-weight="800">
+    <text class="term-line" x="0" y="0" fill="#86EFAC">$ pioneer deploy --local</text><text class="term-line" x="0" y="44" fill="#D4D4D4">Inferred services: Worker, D1, Cache, Queue</text><text class="term-line" x="0" y="88" fill="#D4D4D4">Ready on http://127.0.0.1:8789</text><text class="term-line" x="0" y="132" fill="#7DD3FC">HTTP/1.1 201 Created</text>
+    <rect class="cursor" x="0" y="184" width="12" height="22" fill="#86EFAC"/>
+  </g>
+</svg>

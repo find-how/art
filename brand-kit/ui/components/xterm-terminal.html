@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+<div class="pioneer-terminal">
+  <div id="pioneer-terminal"></div>
+  <button type="button" data-replay-terminal>Replay</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+<script>
+  const term = new Terminal({
+    cursorBlink: true,
+    fontFamily: '"Commit Mono", ui-monospace, SFMono-Regular, Consolas, monospace',
+    theme: { background: "#070707", foreground: "#d4d4d4", cursor: "#86efac" }
+  });
+  term.open(document.getElementById("pioneer-terminal"));
+  term.writeln("\x1b[32m$ pioneer deploy --local\x1b[0m");
+</script>

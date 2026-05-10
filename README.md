@@ -1,11 +1,125 @@
 # Pioneer Brand Assets
 
-Complete icon and logo asset library for the Pioneer brand, optimized for all platforms and use cases.
+Complete Pioneer brand kit and asset library, optimized for one public story: developers write business logic, and Pioneer turns it into a running Cloudflare edge app.
+
+## Source Of Truth
+
+The source-of-truth brand system lives in `brand-kit/`.
+
+Pioneer should lead with:
+
+```txt
+Write business logic. Ship edge infrastructure.
+```
+
+The Demo is the strongest expression of the brand: ask AI for a checkout endpoint, generate focused TypeScript business logic, then let Pioneer wire and run the Worker, D1, Cache, Queue, auth, logs, and local Wrangler feedback loop.
+
+## Cloudflare Wrangler Brand Portal
+
+This repository is also a Wrangler-deployable Worker + static asset portal for `brand.find.how`.
+
+### Local development
+
+```bash
+npm install
+npm run dev
+```
+
+The build step copies the source brand assets into `dist/assets`, renders PNG companions for social SVGs, generates `dist/assets/manifest.json`, and serves the portal through the Worker in `src/index.js`.
+
+### Deploy
+
+```bash
+npm run check
+npm run deploy:dry-run
+npm run deploy
+```
+
+See `DEPLOYMENT.md` for Cloudflare auth, custom domain, Durable Object migration, optional D1/KV/R2/Queue bindings, and smoke checks.
+
+The GitHub Actions workflow in `.github/workflows/brand-find-how.yml` validates pull requests and deploys merges to `main` or `master` to `https://brand.find.how` with Wrangler. It requires `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` repository secrets.
+
+The custom domain route is configured in `wrangler.toml`:
+
+```toml
+[[routes]]
+pattern = "brand.find.how"
+custom_domain = true
+```
+
+Wrangler also owns the production build hook:
+
+```toml
+[build]
+command = "npm run build"
+```
+
+The Pioneer one-click deploy link is centralized as `PIONEER_DEPLOY_URL` in `wrangler.toml` and exposed through `/api/brand`.
+
+## Product Story Assets
+
+These assets adapt the strongest surfaces from `~/Code/Demo`: AI prompt cards, Monaco-style code frames, terminal deployment playback, Cloudflare/Wrangler feedback panels, and route-to-infrastructure diagrams.
+
+| Directory | Use |
+|------|-----|
+| `social/` | Editable social card SVGs for Open Graph, X, LinkedIn, GitHub, docs, square posts, and deploy launches. PNG companions are generated at build time under `dist/assets/social/png/`. |
+| `patterns/` | Reusable product visuals: editor frame, terminal deploy frame, AI prompt cards, and Cloudflare feedback panels. |
+| `diagrams/` | Documentation and presentation diagrams for the compiler pipeline, route-to-infrastructure story, local feedback loop, and Cloudflare edge stack. |
+| `motion/` | Animated SVG loops for code generation, terminal streaming, service binding pulses, and route tracing. |
+| `buttons/` | Demo-derived Deploy to Pioneer button artwork, CSS, and HTML snippets for one-click deployment entry points. |
+| `brand-kit/` | Source-of-truth positioning, messaging, tokens, UI rules, canonical code snippets, demo scripts, and launch assets. |
+| `brand-kit/ui/components/` | Reusable interactive webview snippets for Monaco, xterm, Edge Artisan, docs search, and find.how navigation. |
+
+## Edge Artisan Runtime
+
+The brand portal now includes a real `/__artisan` Worker endpoint backed by the `ARTISAN_SESSIONS` Durable Object. The browser xterm component posts an Artisan-style command, then renders streamed NDJSON output from the Durable Object command session.
+
+The runtime uses Durable Object storage by default and can attach optional Cloudflare bindings for `EDGE_ARTISAN_DB` (D1), `EDGE_ARTISAN_KV` (KV), `EDGE_ARTISAN_REPORTS` (R2), and `EDGE_ARTISAN_QUEUE` (Queues).
+
+## Go-To-Market Source Assets
+
+The minimum viable launch kit now lives under `brand-kit/assets/`:
+
+| Asset | Path |
+|------|------|
+| Landing page hero | `brand-kit/assets/landing/landing-page-hero.svg` and `.png` |
+| Landing copy blocks | `brand-kit/assets/landing/landing-page-copy.md` |
+| Pitch deck theme | `brand-kit/assets/pitch-deck/pitch-deck-theme.pptx` |
+| Cloudflare Workers Launchpad cover | `brand-kit/assets/launchpad/cloudflare-launchpad-cover.svg` and `.png` |
+| Cloudflare Workers Launchpad one-pager | `brand-kit/assets/launchpad/cloudflare-workers-launchpad-one-pager.md`, `.svg`, and `.png` |
+
+## Deploy Button Assets
+
+The `buttons/` directory packages the better Deploy to Pioneer treatment from the Demo Wrangler app so `brand.find.how` and downstream demos use the same primary action.
+
+| File | Use |
+|------|-----|
+| `buttons/pioneer-deploy-button.svg` | Dark primary button artwork for previews, docs, decks, and social cards. |
+| `buttons/pioneer-deploy-strip.svg` | Wide launch strip artwork for demo pages and generated app previews. |
+| `buttons/pioneer-deploy-button.css` | Reusable CSS for the primary button and deploy strip components. |
+| `buttons/pioneer-deploy-button.html` | Copy-ready markup using the Pioneer bird mark from `/assets/icons-color/64x64.png`. |
+
+## Loading Assets
+
+Animated SVG loading marks live in `loaders/` and deploy to `/assets/loaders/`.
+
+| File | Use |
+|------|-----|
+| `loaders/pioneer-wingbeat-loader.svg` | Primary AI thinking state with a sharp wingbeat and subtle trails. |
+| `loaders/pioneer-signal-loader.svg` | Longer waits, routing, and network work with tactical signal rings. |
+| `loaders/pioneer-fold-loader.svg` | Compact inline loading state with sequential origami fold illumination. |
 
 ## 📁 Directory Structure
 
 ```
 art/
+├── social/               # Social card source SVGs
+├── patterns/             # Product storytelling SVG patterns
+├── diagrams/             # Documentation and presentation diagrams
+├── motion/               # Animated SVG product assets
+├── buttons/              # Deploy to Pioneer buttons and snippets
+├── brand-kit/            # Brand source of truth
+├── loaders/              # Animated AI/loading SVG marks
 ├── icons-color/          # Full-color gradient icons (green)
 ├── icons-black/          # Black variant icons
 ├── icons-white/          # White variant icons (black iOS background)

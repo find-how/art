@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pioneer Brand Kit</title>
+    <meta name="description" content="Pioneer logos, brand assets, app icons, platform resources, and deployment links.">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons-color/32x32.png">
+    <link rel="apple-touch-icon" href="/assets/icons-color/icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/min/vs/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand-link" href="/" aria-label="Pioneer Brand Kit home">
+        <img src="/assets/pioneer-logo.svg" alt="" class="brand-mark">
+        <span>Pioneer</span>
+      </a>
+      <nav class="topnav" aria-label="Brand sections">
+        <a href="#brand">Brand</a>
+        <a href="#components">Components</a>
+        <a href="#logos">Logos</a>
+        <a href="#social">Social</a>
+        <a href="#patterns">Patterns</a>
+        <a href="#diagrams">Diagrams</a>
+        <a href="#loading">Loading</a>
+        <a href="#motion">Motion</a>
+        <a href="#buttons">Buttons</a>
+        <a href="#icons">Icons</a>
+        <a href="#deploy">Deploy</a>
+        <a href="#resources">Resources</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="workspace">
+        <div class="masthead">
+          <div class="masthead-copy">
+            <p class="eyebrow">brand.find.how</p>
+            <h1>Pioneer Brand Kit</h1>
+            <p class="lede">Brand guidance and assets for one idea: developers write business logic, and Pioneer turns it into a running Cloudflare edge app.</p>
+          </div>
+          <div class="quick-actions" id="deployActions" aria-label="Deployment actions"></div>
+        </div>
+
+        <div class="brand-strip" aria-label="Featured brand marks">
+          <div class="logo-sample logo-sample-light">
+            <img src="/assets/pioneer-text.svg" alt="Pioneer color wordmark">
+          </div>
+          <div class="logo-sample logo-sample-dark">
+            <img src="/assets/pioneer-text-white.svg" alt="Pioneer white wordmark">
+          </div>
+          <div class="logo-sample logo-sample-ink">
+            <img src="/assets/pioneer-logo-black.svg" alt="Pioneer black mark">
+          </div>
+        </div>
+
+        <section class="utility-bar" aria-label="Asset controls">
+          <label class="search-label" for="assetSearch">Search assets</label>
+          <input id="assetSearch" class="search-input" type="search" placeholder="Search logos, iOS, Android, favicon, SVG" autocomplete="off">
+          <div class="segmented" id="variantFilters" aria-label="Asset variant filters"></div>
+          <div class="segmented" id="platformFilters" aria-label="Platform filters"></div>
+        </section>
+      </section>
+
+      <section class="section-band brand-source" id="brand">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Source Of Truth</p>
+            <h2>Brand System</h2>
+          </div>
+          <p class="section-note">The Demo is the public story: business logic becomes a running Cloudflare edge app.</p>
+        </div>
+        <div class="brand-source-grid">
+          <article class="source-panel source-panel-primary">
+            <div>
+              <p class="eyebrow">Market Wedge</p>
+              <h3 id="sourceHeadline">Write business logic. Pioneer compiles the infrastructure.</h3>
+              <p id="sourceSentence">Pioneer turns application business logic into production-ready Cloudflare edge infrastructure.</p>
+            </div>
+            <div class="story-steps" aria-label="Pioneer story steps">
+              <span>Ask AI</span>
+              <span>Generate route</span>
+              <span>Infer bindings</span>
+              <span>Run locally</span>
+            </div>
+          </article>
+
+          <article class="source-panel">
+            <h3>Canonical Messaging</h3>
+            <div class="message-list" id="positioningGrid"></div>
+          </article>
+
+          <article class="source-panel code-source">
+            <div class="code-source-header">
+              <div>
+                <h3>Canonical Checkout Route</h3>
+                <p>One small surface that shows Worker, D1, Cache, Queue, auth, logs, and the 201 response.</p>
+              </div>
+              <span>app/routes/web.ts</span>
+            </div>
+            <pre class="branded-code"><code id="canonicalSnippet"></code></pre>
+          </article>
+
+          <article class="source-panel">
+            <h3>Primary Source Files</h3>
+            <div class="source-link-list" id="brandSourceLinks"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-band muted component-index" id="components">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Interactive Kit</p>
+            <h2>Reusable Webview Components</h2>
+          </div>
+          <p class="section-note">Live Pioneer components with copy and download actions for docs, demos, webviews, and launch pages.</p>
+        </div>
+        <div class="component-link-grid">
+          <a href="#component-demo" class="component-link-card">
+            <span>Realtime Demo</span>
+            <strong>Monaco plus Pioneer deploy terminal.</strong>
+          </a>
+          <a href="#component-editor" class="component-link-card">
+            <span>Editor</span>
+            <strong>Typed Monaco route editor from the Demo.</strong>
+          </a>
+          <a href="#component-terminal" class="component-link-card">
+            <span>Terminal</span>
+            <strong>xterm-styled Wrangler feedback console.</strong>
+          </a>
+          <a href="#component-edge-artisan" class="component-link-card">
+            <span>Edge CLI</span>
+            <strong>Artisan commands through Worker Durable Objects.</strong>
+          </a>
+          <a href="#component-search" class="component-link-card">
+            <span>Docs Search</span>
+            <strong>find.how/docs search bar and command palette.</strong>
+          </a>
+          <a href="#component-navigation" class="component-link-card">
+            <span>Navigation</span>
+            <strong>find.how desktop flyouts and mobile drawer.</strong>
+          </a>
+        </div>
+      </section>
+
+      <section class="section-band component-section" id="component-demo">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Browser Demo</p>
+            <h2>Route To Running App</h2>
+          </div>
+          <p class="section-note">Edit the route, then run the Pioneer feedback loop. The terminal streams the same story: infer bindings, run Wrangler, smoke-test checkout.</p>
+        </div>
+        <div class="component-workbench live-demo-workbench">
+          <div class="pioneer-editor-frame">
+            <div class="component-toolbar">
+              <div>
+                <span class="component-kicker">Monaco</span>
+                <strong>app/routes/web.ts</strong>
+              </div>
+              <div class="component-toolbar-actions">
+                <button class="button compact ghost" type="button" data-editor-action="reset">Reset</button>
+                <button class="button compact" type="button" data-editor-action="format">Format</button>
+              </div>
+            </div>
+            <div id="monacoEditorHost" class="monaco-host" aria-label="Pioneer TypeScript editor"></div>
+            <textarea id="monacoFallback" class="monaco-fallback" aria-label="Fallback Pioneer code editor"></textarea>
+            <div class="service-focus-row" aria-label="Code focus controls">
+              <button type="button" data-focus-line="route">Route</button>
+              <button type="button" data-focus-line="database">D1</button>
+              <button type="button" data-focus-line="cache">Cache</button>
+              <button type="button" data-focus-line="queue">Queue</button>
+              <button type="button" data-focus-line="response">201</button>
+              <button type="button" data-focus-line="auth">Auth</button>
+            </div>
+          </div>
+          <div class="pioneer-terminal-frame">
+            <div class="component-toolbar dark">
+              <div>
+                <span class="component-kicker">xterm</span>
+                <strong>pioneer deploy --local</strong>
+              </div>
+              <strong id="demoTerminalStatus" class="terminal-status">waiting</strong>
+            </div>
+            <div id="demoTerminalHost" class="xterm-host" aria-label="Pioneer live terminal"></div>
+            <div id="demoTerminalFallback" class="terminal-fallback" aria-label="Fallback Pioneer live terminal"></div>
+            <div class="component-action-row">
+              <button class="pioneer-deploy-button component-run-button" id="runBrowserDemo" type="button">
+                <span class="pioneer-deploy-mark" aria-hidden="true">
+                  <img src="/assets/icons-color/64x64.png" alt="">
+                </span>
+                <span class="pioneer-deploy-copy">
+                  <strong>Run Pioneer feedback</strong>
+                  <span>Wrangler local loop</span>
+                </span>
+              </button>
+              <button class="button compact" type="button" data-copy-component="browser-demo">Copy code</button>
+              <button class="button compact ghost" type="button" data-download-component="browser-demo">Download</button>
+            </div>
+          </div>
+        </div>
+        <details class="component-code-drawer">
+          <summary>Component code</summary>
+          <pre><code id="browserDemoSnippet"></code></pre>
+        </details>
+      </section>
+
+      <section class="section-band muted component-section" id="component-editor">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Editor Component</p>
+            <h2>Typed Pioneer Monaco Editor</h2>
+          </div>
+          <p class="section-note">The Demo editor as a reusable surface: Pioneer types, dark theme, service line highlights, and copy/download actions.</p>
+        </div>
+        <div class="component-workbench two-column">
+          <div class="component-demo-card">
+            <div class="mini-editor-preview">
+              <div class="component-toolbar dark">
+                <div>
+                  <span class="component-kicker">TypeScript</span>
+                  <strong>@find-how/pioneer</strong>
+                </div>
+                <span class="status-pill">Typed</span>
+              </div>
+              <pre><code id="editorPreviewCode"></code></pre>
+            </div>
+          </div>
+          <div class="component-source-panel">
+            <h3>Use This Editor</h3>
+            <p>The production component loads Monaco, registers Pioneer framework types, and applies the same token colors used in the Demo.</p>
+            <div class="component-action-row">
+              <button class="button compact" type="button" data-copy-component="monaco">Copy component</button>
+              <button class="button compact ghost" type="button" data-download-component="monaco">Download</button>
+            </div>
+            <pre><code id="monacoComponentSnippet"></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band component-section" id="component-terminal">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Terminal Component</p>
+            <h2>Pioneer xterm Console</h2>
+          </div>
+          <p class="section-note">A reusable terminal for compile, binding inference, migration, Wrangler, and smoke-test feedback.</p>
+        </div>
+        <div class="component-workbench two-column">
+          <div class="pioneer-terminal-frame">
+            <div class="component-toolbar dark">
+              <div>
+                <span class="component-kicker">xterm</span>
+                <strong>wrangler dev</strong>
+              </div>
+              <strong id="componentTerminalStatus" class="terminal-status">ready</strong>
+            </div>
+            <div id="componentTerminalHost" class="xterm-host compact-terminal" aria-label="Standalone Pioneer terminal"></div>
+            <div id="componentTerminalFallback" class="terminal-fallback" aria-label="Fallback Pioneer terminal"></div>
+            <div class="component-action-row">
+              <button class="button primary compact" type="button" id="replayTerminalDemo">Replay</button>
+              <button class="button compact ghost" type="button" id="clearTerminalDemo">Clear</button>
+            </div>
+          </div>
+          <div class="component-source-panel">
+            <h3>Use This Terminal</h3>
+            <p>Styled for Pioneer deploy feedback, with semantic line colors for commands, service wiring, success, and muted logs.</p>
+            <div class="component-action-row">
+              <button class="button compact" type="button" data-copy-component="xterm">Copy component</button>
+              <button class="button compact ghost" type="button" data-download-component="xterm">Download</button>
+            </div>
+            <pre><code id="xtermComponentSnippet"></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band muted component-section" id="component-edge-artisan">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Edge CLI</p>
+            <h2>Artisan On Cloudflare</h2>
+          </div>
+          <p class="section-note">An xterm console example where an Artisan command enters a Worker, runs through a Durable Object command driver, and uses Cloudflare edge services like a CLI runtime.</p>
+        </div>
+        <div class="component-workbench live-demo-workbench">
+          <div class="pioneer-terminal-frame">
+            <div class="component-toolbar dark">
+              <div>
+                <span class="component-kicker">xterm</span>
+                <strong>php artisan edge:report orders --queue</strong>
+              </div>
+              <strong id="artisanTerminalStatus" class="terminal-status">ready</strong>
+            </div>
+            <div id="artisanTerminalHost" class="xterm-host" aria-label="Edge Artisan terminal"></div>
+            <div id="artisanTerminalFallback" class="terminal-fallback" aria-label="Fallback Edge Artisan terminal"></div>
+            <div class="component-action-row">
+              <button class="pioneer-deploy-button component-run-button" id="runArtisanDemo" type="button">
+                <span class="pioneer-deploy-mark" aria-hidden="true">
+                  <img src="/assets/icons-color/64x64.png" alt="">
+                </span>
+                <span class="pioneer-deploy-copy">
+                  <strong>Run artisan on edge</strong>
+                  <span>Durable Object command driver</span>
+                </span>
+              </button>
+              <button class="button compact ghost" type="button" id="clearArtisanDemo">Clear</button>
+            </div>
+          </div>
+          <div class="edge-primitive-panel">
+            <h3>Command Runtime Shape</h3>
+            <div class="edge-primitive-grid" aria-label="Cloudflare primitive flow">
+              <article>
+                <span>Worker</span>
+                <strong>Accepts CLI request</strong>
+                <p>POST `/__artisan` validates input and forwards it to the command session.</p>
+              </article>
+              <article>
+                <span>Durable Object</span>
+                <strong>Owns process state</strong>
+                <p>Serializes command execution, streams output, and keeps cursor/session state.</p>
+              </article>
+              <article>
+                <span>D1</span>
+                <strong>Reads app data</strong>
+                <p>Runs command queries and writes command audit rows.</p>
+              </article>
+              <article>
+                <span>KV + Cache</span>
+                <strong>Stores command metadata</strong>
+                <p>Caches recent output and command discovery data near the edge.</p>
+              </article>
+              <article>
+                <span>R2</span>
+                <strong>Persists artifacts</strong>
+                <p>Stores generated reports, snapshots, and export files.</p>
+              </article>
+              <article>
+                <span>Queues</span>
+                <strong>Continues background work</strong>
+                <p>Dispatches follow-up jobs without blocking the terminal stream.</p>
+              </article>
+            </div>
+            <div class="component-action-row">
+              <button class="button compact" type="button" data-copy-component="edge-artisan">Copy worker driver</button>
+              <button class="button compact ghost" type="button" data-download-component="edge-artisan">Download</button>
+            </div>
+            <pre><code id="edgeArtisanComponentSnippet"></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band muted component-section" id="component-search">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Docs Search</p>
+            <h2>find.how Search Bar</h2>
+          </div>
+          <p class="section-note">The docs search pattern: centered trigger, command shortcut, modal search, grouped results, and recent search behavior.</p>
+        </div>
+        <div class="component-workbench two-column">
+          <div class="docs-search-demo">
+            <button id="docsSearchTrigger" class="docs-search-trigger" type="button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="M20 20L16.5 16.5" stroke-linecap="round"></path>
+              </svg>
+              <span>Search docs</span>
+              <kbd>⌘K</kbd>
+            </button>
+            <div class="docs-search-note">Press <kbd>⌘K</kbd> or <kbd>Ctrl K</kbd> to open the palette.</div>
+          </div>
+          <div class="component-source-panel">
+            <h3>Use This Search</h3>
+            <p>Designed to drop into docs, webviews, and demos with local result data first, then Algolia or API search later.</p>
+            <div class="component-action-row">
+              <button class="button compact" type="button" data-copy-component="docs-search">Copy component</button>
+              <button class="button compact ghost" type="button" data-download-component="docs-search">Download</button>
+            </div>
+            <pre><code id="docsSearchComponentSnippet"></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band component-section" id="component-navigation">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Navigation</p>
+            <h2>find.how Flyout Menu</h2>
+          </div>
+          <p class="section-note">Desktop flyouts with a mobile tabbed drawer, adapted to Pioneer’s current product story and deploy action.</p>
+        </div>
+        <div class="component-workbench navigation-workbench">
+          <div class="findhow-nav-demo" id="findhowNavDemo">
+            <div class="findhow-nav-bar">
+              <a href="#" class="findhow-logo" aria-label="Pioneer home">
+                <img src="/assets/icons-color/64x64.png" alt="">
+                <span>Pioneer</span>
+              </a>
+              <div class="findhow-nav-links" aria-label="Demo desktop navigation">
+                <button type="button" data-flyout="products">Products</button>
+                <button type="button" data-flyout="framework">Framework</button>
+                <button type="button" data-flyout="resources">Resources</button>
+                <a href="#resources">Docs</a>
+              </div>
+              <div class="findhow-nav-actions">
+                <button class="docs-search-mini" type="button" data-open-search>Search <kbd>⌘K</kbd></button>
+                <button class="button compact primary" type="button">Deploy</button>
+              </div>
+              <button class="findhow-menu-button" id="openMobileNav" type="button" aria-label="Open navigation menu">
+                <span></span><span></span>
+              </button>
+            </div>
+            <div class="findhow-flyout" id="findhowFlyout" hidden></div>
+          </div>
+          <div class="component-source-panel">
+            <h3>Use This Navigation</h3>
+            <p>Mirrors the current find.how approach: simple top nav on desktop, full-screen drawer on mobile, and content-rich flyout panels.</p>
+            <div class="component-action-row">
+              <button class="button compact" type="button" data-copy-component="findhow-nav">Copy component</button>
+              <button class="button compact ghost" type="button" data-download-component="findhow-nav">Download</button>
+            </div>
+            <pre><code id="findhowNavComponentSnippet"></code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band" id="logos">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Core Files</p>
+            <h2>Logos</h2>
+          </div>
+          <p id="assetSummary" class="section-note"></p>
+        </div>
+        <div class="logo-grid" id="logoGrid"></div>
+      </section>
+
+      <section class="section-band muted" id="social">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Distribution</p>
+            <h2>Social Cards</h2>
+          </div>
+          <p class="section-note">Editable SVG templates plus generated PNG companions for Open Graph, X, LinkedIn, GitHub, docs, and launch posts.</p>
+        </div>
+        <div class="showcase-grid social-grid" id="socialGrid"></div>
+      </section>
+
+      <section class="section-band" id="patterns">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Product Story</p>
+            <h2>Patterns</h2>
+          </div>
+          <p class="section-note">Reusable visuals from the Demo: editor, prompt cards, terminal playback, and Cloudflare feedback panels.</p>
+        </div>
+        <div class="showcase-grid pattern-grid" id="patternGrid"></div>
+      </section>
+
+      <section class="section-band muted" id="diagrams">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Docs</p>
+            <h2>Diagrams</h2>
+          </div>
+          <p class="section-note">Documentation-grade diagrams for the compiler pipeline, local feedback loop, and Cloudflare edge stack.</p>
+        </div>
+        <div class="showcase-grid diagram-grid" id="diagramGrid"></div>
+      </section>
+
+      <section class="section-band" id="loading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">AI States</p>
+            <h2>Loading Assets</h2>
+          </div>
+          <p class="section-note">Standalone animated SVGs for thinking, routing, and background work.</p>
+        </div>
+        <div class="loader-grid" id="loaderGrid"></div>
+      </section>
+
+      <section class="section-band muted" id="motion">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Motion System</p>
+            <h2>Animated Product Assets</h2>
+          </div>
+          <p class="section-note">Self-contained SVG loops for code generation, terminal streaming, service binding, and route tracing.</p>
+        </div>
+        <div class="showcase-grid motion-grid" id="motionGrid"></div>
+      </section>
+
+      <section class="section-band" id="buttons">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Pioneer Deploy</p>
+            <h2>One-Click Button Assets</h2>
+          </div>
+          <p class="section-note">Demo-derived button artwork, CSS, and snippets for the Pioneer deploy entry point.</p>
+        </div>
+        <div class="showcase-grid button-grid" id="buttonGrid"></div>
+      </section>
+
+      <section class="section-band muted" id="icons">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Platform Sets</p>
+            <h2>Icons</h2>
+          </div>
+          <p class="section-note">Color, black, and white variants are available for web, desktop, iOS, Android, and Windows packaging.</p>
+        </div>
+        <div class="icon-set-grid" id="iconSetGrid"></div>
+      </section>
+
+      <section class="section-band split" id="deploy">
+        <div>
+          <p class="eyebrow">Deployment</p>
+          <h2>One-Click Buttons</h2>
+          <p class="section-note">Primary links are centralized in the Worker config and exposed at <code>/api/brand</code>.</p>
+        </div>
+        <div class="deploy-panel">
+          <div class="deploy-actions-large" id="deployActionsLarge"></div>
+          <div class="command-row">
+            <code>npm run deploy</code>
+            <button class="button compact" type="button" data-copy="npm run deploy">Copy</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-band muted" id="resources">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Resources</p>
+            <h2>Asset Library</h2>
+          </div>
+          <p class="section-note" id="visibleCount"></p>
+        </div>
+        <div class="resource-grid" id="resourceGrid"></div>
+        <div class="asset-grid" id="assetGrid"></div>
+      </section>
+
+      <section class="section-band color-system">
+        <div>
+          <p class="eyebrow">Color System</p>
+          <h2>Tokens</h2>
+        </div>
+        <div class="swatch-grid" id="swatchGrid"></div>
+      </section>
+    </main>
+
+    <div class="docs-search-modal" id="docsSearchModal" hidden aria-hidden="true">
+      <button class="docs-search-backdrop" type="button" data-close-search aria-label="Close search"></button>
+      <div class="docs-search-dialog" role="dialog" aria-modal="true" aria-labelledby="docsSearchTitle">
+        <div class="docs-search-input-row">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M20 20L16.5 16.5" stroke-linecap="round"></path>
+          </svg>
+          <input id="docsSearchInput" type="search" placeholder="Search docs" autocomplete="off" aria-labelledby="docsSearchTitle">
+        </div>
+        <div id="docsSearchTitle" class="sr-only">Search docs</div>
+        <div class="docs-search-results" id="docsSearchResults"></div>
+        <div class="docs-search-footer">
+          <span>Search by local index</span>
+          <kbd>Esc</kbd>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-nav-drawer" id="mobileNavDrawer" hidden aria-hidden="true">
+      <button class="mobile-nav-backdrop" type="button" id="closeMobileNavBackdrop" aria-label="Close menu"></button>
+      <div class="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="Pioneer mobile navigation">
+        <div class="mobile-nav-head">
+          <strong>Pioneer</strong>
+          <button type="button" id="closeMobileNav" aria-label="Close menu">Close</button>
+        </div>
+        <div class="mobile-nav-tabs" role="tablist" aria-label="Navigation categories"></div>
+        <div class="mobile-nav-content"></div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="/app.js"></script>
+    <script type="module" src="/interactive-components.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<div class="pioneer-editor-frame">
+  <div class="editor-toolbar">
+    <strong>app/routes/web.ts</strong>
+    <span>TypeScript</span>
+  </div>
+  <div id="pioneer-editor"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/min/vs/loader.js"></script>
+<script>
+  require.config({ paths: { vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.52.0/min/vs" } });
+  require(["vs/editor/editor.main"], () => {
+    monaco.editor.create(document.getElementById("pioneer-editor"), {
+      language: "typescript",
+      theme: "vs-dark",
+      automaticLayout: true,
+      minimap: { enabled: false },
+      fixedOverflowWidgets: true
+    });
+  });
+</script>

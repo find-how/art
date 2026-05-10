@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="627" viewBox="0 0 1200 627" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer LinkedIn banner</title>
+  <desc id="desc">Pioneer LinkedIn banner.</desc>
+  <rect width="1200" height="627" fill="#f4f7ef"/>
+  <rect x="76" y="76" width="1048" height="475" rx="18" fill="#ffffff" stroke="#dce5d7"/>
+  <rect x="706" y="76" width="418" height="475" rx="18" fill="#171717"/>
+  <text x="126" y="170" fill="#2d7a3e" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="800">PIONEER</text>
+  <text x="126" y="248" fill="#161a17" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="52" font-weight="820">AI writes code.</text>
+  <text x="126" y="312" fill="#161a17" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="52" font-weight="820">Pioneer deploys it.</text>
+  <text x="126" y="408" fill="#525252" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="25" font-weight="620">Business logic becomes a running</text>
+  <text x="126" y="442" fill="#525252" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="25" font-weight="620">Cloudflare edge app.</text>
+  <text x="744" y="166" fill="#737373" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16">app/routes/web.ts</text>
+  <text x="744" y="226" fill="#e5e5e5" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16">Route.post("/checkout")</text>
+  <text x="744" y="270" fill="#a5dbb7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16">DB.table("orders").create(input)</text>
+  <text x="744" y="314" fill="#a5dbb7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16">Queue.dispatch("send-receipt")</text>
+  <text x="744" y="358" fill="#e5e5e5" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16">Response.json({ ok: true })</text>
+  <text x="744" y="402" fill="#e5e5e5" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16">middleware(["auth", "verified"])</text>
+  <rect x="744" y="456" width="220" height="48" rx="8" fill="#2d7a3e"/>
+  <text x="774" y="487" fill="#ffffff" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="800">Deploy to Pioneer</text>
+</svg>

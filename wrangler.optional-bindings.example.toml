@@ -1,0 +1,19 @@
+# Optional bindings for the Edge Artisan demo.
+# Copy the sections you want into wrangler.toml after creating the resources.
+
+[[d1_databases]]
+binding = "EDGE_ARTISAN_DB"
+database_name = "pioneer-edge-artisan"
+database_id = "<cloudflare-d1-database-id>"
+
+[[kv_namespaces]]
+binding = "EDGE_ARTISAN_KV"
+id = "<cloudflare-kv-namespace-id>"
+
+[[r2_buckets]]
+binding = "EDGE_ARTISAN_REPORTS"
+bucket_name = "pioneer-edge-artisan-reports"
+
+[[queues.producers]]
+binding = "EDGE_ARTISAN_QUEUE"
+queue = "pioneer-edge-artisan"

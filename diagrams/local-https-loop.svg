@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Local feedback loop</title>
+  <desc id="desc">Develop against local URLs, HTTPS expectations, and Wrangler output before shipping.</desc>
+  
+  <defs>
+    <linearGradient id="local-https-loop-svg-bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4F7EF"/>
+      <stop offset=".58" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF2E4"/>
+    </linearGradient>
+    <radialGradient id="local-https-loop-svg-glow-a" cx="22%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#A5DBB7" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#A5DBB7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="local-https-loop-svg-glow-b" cx="86%" cy="86%" r="48%">
+      <stop offset="0" stop-color="#D9A441" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#D9A441" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="local-https-loop-svg-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="rgba(22,26,23,.055)" stroke-width="1"/>
+    </pattern>
+    <filter id="local-https-loop-svg-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0A0A0A" flood-opacity=".20"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#local-https-loop-svg-bg)"/>
+  <rect width="1440" height="900" fill="url(#local-https-loop-svg-glow-a)"/>
+  <rect width="1440" height="900" fill="url(#local-https-loop-svg-glow-b)"/>
+  <rect width="1440" height="900" fill="url(#local-https-loop-svg-grid)"/>
+  
+  <g transform="translate(1060 82) scale(0.42)">
+    <defs>
+      <linearGradient id="local-https-loop-svg-bird-g" x1="8" y1="17" x2="500" y2="493" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#2D7A3E"/>
+        <stop offset=".52" stop-color="#4A9D5F"/>
+        <stop offset="1" stop-color="#7CB342"/>
+      </linearGradient>
+      <linearGradient id="local-https-loop-svg-bird-w" x1="230" y1="50" x2="500" y2="170" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#4A9D5F"/>
+        <stop offset="1" stop-color="#B8EA4F"/>
+      </linearGradient>
+    </defs>
+    <path fill="url(#local-https-loop-svg-bird-g)" d="M8 110 46 73 46 110Z"/>
+    <path fill="url(#local-https-loop-svg-bird-g)" d="M56 66H96L170 153 133 190H56Z"/>
+    <path fill="url(#local-https-loop-svg-bird-g)" d="M150 190 305 26 305 190Z"/>
+    <path fill="url(#local-https-loop-svg-bird-w)" d="M317 17 486 23 317 177Z"/>
+    <path fill="url(#local-https-loop-svg-bird-w)" d="M421 99 500 55 474 46Z"/>
+    <path fill="url(#local-https-loop-svg-bird-g)" d="M64 202H303L237 383Z"/>
+    <path fill="url(#local-https-loop-svg-bird-g)" d="M307 229 306 493 227 440Z"/>
+  </g>
+  <text x="118" y="128" fill="#2D7A3E" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0">Pioneer Diagram</text>
+  <text x="118" y="236" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="70" font-weight="800" letter-spacing="0">Local feedback loop</text>
+  <text x="120" y="304" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="28" font-weight="650">Develop against local URLs, HTTPS expectations, and Wrangler output before shipping.</text>
+  
+    <g>
+      <rect x="120" y="420" width="236" height="154" rx="18" fill="#FFFFFF" stroke="#4A9D5F" stroke-opacity=".42"/>
+      <circle cx="156" cy="460" r="16" fill="#4A9D5F" opacity=".18"/>
+      <circle cx="156" cy="460" r="7" fill="#4A9D5F"/>
+      <text x="182" y="465" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800">Code</text>
+      <text x="144" y="512" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="650">app/routes/web.ts</text>
+      <path d="M374 496H411" stroke="#2D7A3E" stroke-width="5" stroke-linecap="round"/><path d="M411 496l-13-10v20Z" fill="#2D7A3E"/>
+    </g>
+    <g>
+      <rect x="375" y="420" width="236" height="154" rx="18" fill="#F8FAF5" stroke="#0284C7" stroke-opacity=".42"/>
+      <circle cx="411" cy="460" r="16" fill="#0284C7" opacity=".18"/>
+      <circle cx="411" cy="460" r="7" fill="#0284C7"/>
+      <text x="437" y="465" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800">Compile</text>
+      <text x="399" y="512" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="650">.pioneer target</text>
+      <path d="M629 496H666" stroke="#2D7A3E" stroke-width="5" stroke-linecap="round"/><path d="M666 496l-13-10v20Z" fill="#2D7A3E"/>
+    </g>
+    <g>
+      <rect x="630" y="420" width="236" height="154" rx="18" fill="#FFFFFF" stroke="#D9A441" stroke-opacity=".42"/>
+      <circle cx="666" cy="460" r="16" fill="#D9A441" opacity=".18"/>
+      <circle cx="666" cy="460" r="7" fill="#D9A441"/>
+      <text x="692" y="465" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800">Wrangler</text>
+      <text x="654" y="512" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="650">local Worker</text>
+      <path d="M884 496H921" stroke="#2D7A3E" stroke-width="5" stroke-linecap="round"/><path d="M921 496l-13-10v20Z" fill="#2D7A3E"/>
+    </g>
+    <g>
+      <rect x="885" y="420" width="236" height="154" rx="18" fill="#F8FAF5" stroke="#7CB342" stroke-opacity=".42"/>
+      <circle cx="921" cy="460" r="16" fill="#7CB342" opacity=".18"/>
+      <circle cx="921" cy="460" r="7" fill="#7CB342"/>
+      <text x="947" y="465" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800">Smoke</text>
+      <text x="909" y="512" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="650">201 response</text>
+      <path d="M1139 496H1176" stroke="#2D7A3E" stroke-width="5" stroke-linecap="round"/><path d="M1176 496l-13-10v20Z" fill="#2D7A3E"/>
+    </g>
+    <g>
+      <rect x="1140" y="420" width="236" height="154" rx="18" fill="#FFFFFF" stroke="#456275" stroke-opacity=".42"/>
+      <circle cx="1176" cy="460" r="16" fill="#456275" opacity=".18"/>
+      <circle cx="1176" cy="460" r="7" fill="#456275"/>
+      <text x="1202" y="465" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800">Inspect</text>
+      <text x="1164" y="512" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="650">logs and bindings</text>
+      
+    </g>
+  
+    <path d="M176 674 C394 762 712 760 1014 662 C1120 628 1207 604 1280 626" fill="none" stroke="#D9A441" stroke-width="8" stroke-linecap="round" stroke-dasharray="18 20" opacity=".66"/>
+</svg>

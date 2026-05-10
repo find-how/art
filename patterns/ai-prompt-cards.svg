@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer AI prompt cards</title>
+  <desc id="desc">Reusable brand pattern for interactive AI prompt cards around generated code.</desc>
+  
+  <defs>
+    <linearGradient id="pattern-prompts-bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4F7EF"/>
+      <stop offset=".58" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF2E4"/>
+    </linearGradient>
+    <radialGradient id="pattern-prompts-glow-a" cx="22%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#A5DBB7" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#A5DBB7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pattern-prompts-glow-b" cx="86%" cy="86%" r="48%">
+      <stop offset="0" stop-color="#D9A441" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#D9A441" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="pattern-prompts-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="rgba(22,26,23,.055)" stroke-width="1"/>
+    </pattern>
+    <filter id="pattern-prompts-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0A0A0A" flood-opacity=".20"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#pattern-prompts-bg)"/>
+  <rect width="1440" height="900" fill="url(#pattern-prompts-glow-a)"/>
+  <rect width="1440" height="900" fill="url(#pattern-prompts-glow-b)"/>
+  <rect width="1440" height="900" fill="url(#pattern-prompts-grid)"/>
+  <text x="96" y="108" fill="#2D7A3E" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0">Pattern / AI Prompts</text>
+  <text x="96" y="210" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="74" font-weight="800" letter-spacing="0">Ask the generated</text>
+<text x="96" y="282.52" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="74" font-weight="800" letter-spacing="0">code what it becomes</text>
+  
+  <g filter="url(#pattern-prompts-shadow)">
+    <clipPath id="pattern-prompts-codeclip">
+      <rect x="484" y="172" width="760" height="278" rx="18"/>
+    </clipPath>
+    <rect x="484" y="172" width="760" height="278" rx="18" fill="#0A0A0A" stroke="#262626"/>
+    <rect x="484" y="172" width="760" height="48" rx="18" fill="#171717"/>
+    <circle cx="510" cy="196" r="6" fill="#EF4444"/>
+    <circle cx="532" cy="196" r="6" fill="#F59E0B"/>
+    <circle cx="554" cy="196" r="6" fill="#22C55E"/>
+    <text x="580" y="203" fill="#A5DBB7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16" font-weight="700">app/routes/web.ts</text>
+    <g clip-path="url(#pattern-prompts-codeclip)">
+      
+      <rect x="504" y="222" width="690" height="28" rx="6" fill="#7DD3FC" opacity=".09"/>
+      <text x="514" y="244" fill="#7DD3FC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">Route.post('/checkout', async ({ request, DB, Queue, Cache }) =&gt; {</text>
+      <rect x="504" y="256" width="640" height="28" rx="6" fill="#86EFAC" opacity=".09"/>
+      <text x="514" y="278" fill="#86EFAC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  const order = await DB.table('orders').create(await request.json())</text>
+      <rect x="504" y="290" width="640" height="28" rx="6" fill="#FACC15" opacity=".09"/>
+      <text x="514" y="312" fill="#FACC15" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  Cache.set(`order:${order.id}`, order, { ttl: 60 * 15 })</text>
+      <rect x="504" y="324" width="640" height="28" rx="6" fill="#38BDF8" opacity=".09"/>
+      <text x="514" y="346" fill="#38BDF8" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  await Queue.dispatch('send-receipt', { orderId: order.id })</text>
+      <rect x="504" y="358" width="640" height="28" rx="6" fill="#FB923C" opacity=".09"/>
+      <text x="514" y="380" fill="#FB923C" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  return Response.json(order, { status: 201 })</text>
+      <rect x="504" y="392" width="640" height="28" rx="6" fill="#A5DBB7" opacity=".09"/>
+      <text x="514" y="414" fill="#A5DBB7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">}).middleware(['auth', 'verified'])</text>
+    </g>
+  </g>
+  <g transform="translate(140 360) rotate(-5)">
+      <rect width="272" height="112" rx="18" fill="#FFFFFF" stroke="#DCE5D7" filter="url(#pattern-prompts-shadow)"/>
+      <circle cx="36" cy="34" r="16" fill="#A5DBB7" opacity=".42"/>
+      <text x="62" y="38" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="20" font-weight="800">What did AI write?</text>
+      <text x="24" y="78" fill="#59645A" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="700">Show the endpoint</text>
+    </g><g transform="translate(1030 360) rotate(5)">
+      <rect width="272" height="112" rx="18" fill="#FFFFFF" stroke="#DCE5D7" filter="url(#pattern-prompts-shadow)"/>
+      <circle cx="36" cy="34" r="16" fill="#A5DBB7" opacity=".42"/>
+      <text x="62" y="38" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="20" font-weight="800">Where is the server?</text>
+      <text x="24" y="78" fill="#59645A" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="700">Highlight Route.post</text>
+    </g><g transform="translate(140 542) rotate(-5)">
+      <rect width="272" height="112" rx="18" fill="#FFFFFF" stroke="#DCE5D7" filter="url(#pattern-prompts-shadow)"/>
+      <circle cx="36" cy="34" r="16" fill="#A5DBB7" opacity=".42"/>
+      <text x="62" y="38" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="20" font-weight="800">Where do services come from?</text>
+      <text x="24" y="78" fill="#59645A" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="700">DB, Cache, Queue</text>
+    </g><g transform="translate(1030 542) rotate(5)">
+      <rect width="272" height="112" rx="18" fill="#FFFFFF" stroke="#DCE5D7" filter="url(#pattern-prompts-shadow)"/>
+      <circle cx="36" cy="34" r="16" fill="#A5DBB7" opacity=".42"/>
+      <text x="62" y="38" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="20" font-weight="800">How is checkout protected?</text>
+      <text x="24" y="78" fill="#59645A" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="15" font-weight="700">Auth middleware</text>
+    </g>
+</svg>

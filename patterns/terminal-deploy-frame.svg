@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer terminal deploy frame</title>
+  <desc id="desc">Reusable brand pattern for deployment terminal playback.</desc>
+  
+  <defs>
+    <linearGradient id="pattern-terminal-bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4F7EF"/>
+      <stop offset=".58" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF2E4"/>
+    </linearGradient>
+    <radialGradient id="pattern-terminal-glow-a" cx="22%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#A5DBB7" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#A5DBB7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pattern-terminal-glow-b" cx="86%" cy="86%" r="48%">
+      <stop offset="0" stop-color="#D9A441" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#D9A441" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="pattern-terminal-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="rgba(22,26,23,.055)" stroke-width="1"/>
+    </pattern>
+    <filter id="pattern-terminal-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0A0A0A" flood-opacity=".20"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#pattern-terminal-bg)"/>
+  <rect width="1440" height="900" fill="url(#pattern-terminal-glow-a)"/>
+  <rect width="1440" height="900" fill="url(#pattern-terminal-glow-b)"/>
+  <rect width="1440" height="900" fill="url(#pattern-terminal-grid)"/>
+  <text x="96" y="108" fill="#2D7A3E" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0">Pattern / Terminal</text>
+  <text x="96" y="210" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="0">Local Wrangler</text>
+<text x="96" y="286.44" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="0">feedback loop</text>
+  
+  <g filter="url(#pattern-terminal-shadow)">
+    <clipPath id="pattern-terminal-termclip">
+      <rect x="606" y="140" width="700" height="300" rx="18"/>
+    </clipPath>
+    <rect x="606" y="140" width="700" height="300" rx="18" fill="#070707" stroke="#262626"/>
+    <rect x="606" y="140" width="700" height="50" rx="18" fill="#171717"/>
+    <circle cx="632" cy="165" r="6" fill="#EF4444"/>
+    <circle cx="654" cy="165" r="6" fill="#F59E0B"/>
+    <circle cx="676" cy="165" r="6" fill="#22C55E"/>
+    <text x="702" y="172" fill="#A3A3A3" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16" font-weight="700">pioneer deploy --local</text>
+    <g clip-path="url(#pattern-terminal-termclip)">
+      <text x="634" y="228" fill="#86EFAC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="700">$ pioneer deploy app/routes/web.ts --local</text>
+<text x="634" y="262" fill="#D4D4D4" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="700">Analyzing Route.post('/checkout')</text>
+<text x="634" y="296" fill="#7DD3FC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="700">Inferred services: Worker, D1, Cache, Queue, Auth</text>
+<text x="634" y="330" fill="#86EFAC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="700">D1 migrations applied locally: checkout-db</text>
+<text x="634" y="364" fill="#86EFAC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="700">Ready on http://127.0.0.1:8789</text>
+<text x="634" y="398" fill="#7DD3FC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="700">HTTP/1.1 201 Created</text>
+    </g>
+  </g>
+  <g transform="translate(96 612)">
+    <rect x="0" y="0" width="118" height="60" rx="12" fill="#FFFFFF" stroke="#DCE5D7"/><text x="59" y="38" text-anchor="middle" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="800">Compile</text><rect x="142" y="0" width="118" height="60" rx="12" fill="#FFFFFF" stroke="#DCE5D7"/><text x="201" y="38" text-anchor="middle" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="800">Bind</text><rect x="284" y="0" width="118" height="60" rx="12" fill="#FFFFFF" stroke="#DCE5D7"/><text x="343" y="38" text-anchor="middle" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="800">Data</text><rect x="426" y="0" width="118" height="60" rx="12" fill="#FFFFFF" stroke="#DCE5D7"/><text x="485" y="38" text-anchor="middle" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="800">Observe</text><rect x="568" y="0" width="118" height="60" rx="12" fill="#2D7A3E" stroke="#DCE5D7"/><text x="627" y="38" text-anchor="middle" fill="#FFFFFF" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="800">Run</text>
+  </g>
+</svg>

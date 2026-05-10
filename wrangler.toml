@@ -1,0 +1,43 @@
+"$schema" = "./node_modules/wrangler/config-schema.json"
+name = "pioneer-brand-assets"
+main = "src/index.js"
+compatibility_date = "2026-05-10"
+workers_dev = true
+send_metrics = false
+
+[build]
+command = "npm run build"
+watch_dir = [
+  "brand-kit",
+  "buttons",
+  "diagrams",
+  "loaders",
+  "motion",
+  "patterns",
+  "public",
+  "scripts",
+  "social",
+  "src"
+]
+
+[[routes]]
+pattern = "brand.find.how"
+custom_domain = true
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+run_worker_first = ["/api/*", "/__artisan", "/__artisan/*"]
+
+[[durable_objects.bindings]]
+name = "ARTISAN_SESSIONS"
+class_name = "EdgeArtisanSession"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["EdgeArtisanSession"]
+
+[vars]
+PUBLIC_ORIGIN = "https://brand.find.how"
+PIONEER_DEPLOY_URL = "https://pioneer.find.how/deploy?source=brand.find.how"

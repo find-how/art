@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer pitch deck theme cover</title>
+  <desc id="desc">Pioneer pitch deck theme cover.</desc>
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <rect x="96" y="96" width="1408" height="708" rx="24" fill="#f4f7ef" stroke="#dce5d7"/>
+  <rect x="96" y="96" width="520" height="708" rx="24" fill="#161a17"/>
+  <path d="M180 188L254 188L220 224L258 260L212 247L180 294L186 236L142 214Z" fill="#7cb342"/>
+  <text x="142" y="398" fill="#ffffff" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="82" font-weight="840">Pioneer</text>
+  <text x="142" y="486" fill="#cfe7b7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="23" font-weight="800">BY FIND.HOW</text>
+  <text x="700" y="278" fill="#161a17" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="78" font-weight="840">Write business logic.</text>
+  <text x="700" y="368" fill="#2d7a3e" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="78" font-weight="840">Ship edge infrastructure.</text>
+  <text x="700" y="506" fill="#525252" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="32" font-weight="620">The missing framework layer for Cloudflare's developer platform.</text>
+  <text x="700" y="654" fill="#d9a441" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="24" font-weight="800">AI writes code. Pioneer makes it deployable.</text>
+</svg>

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer wingbeat loading mark</title>
+  <desc id="desc">Animated Pioneer bird mark with a sharp wingbeat and subtle signal trails.</desc>
+  <defs>
+    <linearGradient id="pioneerGradient" x1="16" y1="34" x2="472" y2="488" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f6f35"/>
+      <stop offset="0.48" stop-color="#36913f"/>
+      <stop offset="1" stop-color="#8cc63f"/>
+    </linearGradient>
+    <linearGradient id="edgeGradient" x1="108" y1="80" x2="486" y2="196" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4ea94c"/>
+      <stop offset="1" stop-color="#b2e254"/>
+    </linearGradient>
+    <filter id="flightShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0f2417" flood-opacity="0.34"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#82c447" flood-opacity="0.22"/>
+    </filter>
+    <style>
+      .bird {
+        filter: url(#flightShadow);
+        transform-origin: 256px 256px;
+        animation: hover 1180ms cubic-bezier(.45, 0, .18, 1) infinite;
+      }
+
+      .right-wing {
+        transform-origin: 318px 178px;
+        animation: right-wing 1180ms cubic-bezier(.45, 0, .18, 1) infinite;
+      }
+
+      .inner-wing {
+        transform-origin: 304px 190px;
+        animation: inner-wing 1180ms cubic-bezier(.45, 0, .18, 1) infinite;
+      }
+
+      .tail {
+        transform-origin: 307px 230px;
+        animation: tail-counter 1180ms cubic-bezier(.45, 0, .18, 1) infinite;
+      }
+
+      .trail {
+        fill: none;
+        stroke: #9fcd78;
+        stroke-linecap: round;
+        stroke-width: 9;
+        opacity: 0;
+        animation: trail 1180ms ease-out infinite;
+      }
+
+      .trail.two {
+        animation-delay: 110ms;
+        stroke-width: 6;
+      }
+
+      .trail.three {
+        animation-delay: 220ms;
+        stroke-width: 4;
+      }
+
+      @keyframes hover {
+        0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+        42% { transform: translate3d(0, -9px, 0) rotate(-1.2deg); }
+        68% { transform: translate3d(0, 3px, 0) rotate(.5deg); }
+      }
+
+      @keyframes right-wing {
+        0%, 100% { transform: rotate(0deg) translateY(0); }
+        38% { transform: rotate(-9deg) translateY(-10px); }
+        62% { transform: rotate(4deg) translateY(4px); }
+      }
+
+      @keyframes inner-wing {
+        0%, 100% { transform: rotate(0deg); }
+        38% { transform: rotate(4deg); }
+        62% { transform: rotate(-2deg); }
+      }
+
+      @keyframes tail-counter {
+        0%, 100% { transform: rotate(0deg); }
+        42% { transform: rotate(5deg); }
+        68% { transform: rotate(-2deg); }
+      }
+
+      @keyframes trail {
+        0%, 42% { opacity: 0; transform: translateX(0); }
+        50% { opacity: .66; }
+        100% { opacity: 0; transform: translateX(-42px); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .bird,
+        .right-wing,
+        .inner-wing,
+        .tail,
+        .trail {
+          animation: none;
+        }
+
+        .trail {
+          opacity: .28;
+        }
+      }
+    </style>
+  </defs>
+
+  <g transform="translate(4 2)">
+    <path class="trail" d="M72 308 C35 302 20 281 8 250"/>
+    <path class="trail two" d="M84 350 C46 348 24 333 7 302"/>
+    <path class="trail three" d="M123 404 C74 409 39 396 13 370"/>
+
+    <g class="bird">
+      <path fill="url(#pioneerGradient)" d="M8 110 46 73 46 110Z"/>
+      <path fill="url(#pioneerGradient)" d="M56 66H96L170 153 133 190H56Z"/>
+      <g class="inner-wing">
+        <path fill="url(#pioneerGradient)" d="M150 190 305 26 305 190Z"/>
+      </g>
+      <g class="right-wing">
+        <path fill="url(#edgeGradient)" d="M317 17 486 23 317 177Z"/>
+        <path fill="url(#edgeGradient)" d="M421 99 500 55 474 46Z"/>
+      </g>
+      <path fill="url(#pioneerGradient)" d="M64 202H303L237 383Z"/>
+      <g class="tail">
+        <path fill="url(#pioneerGradient)" d="M307 229 306 493 227 440Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

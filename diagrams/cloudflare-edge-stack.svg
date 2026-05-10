@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">Cloudflare edge stack</title>
+  <desc id="desc">The brand surface for Worker, D1, Cache, Queue, Auth, and Observability.</desc>
+  
+  <defs>
+    <linearGradient id="cloudflare-edge-stack-svg-bg" x1="0" y1="0" x2="1440" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F4F7EF"/>
+      <stop offset=".58" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF2E4"/>
+    </linearGradient>
+    <radialGradient id="cloudflare-edge-stack-svg-glow-a" cx="22%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#A5DBB7" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#A5DBB7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cloudflare-edge-stack-svg-glow-b" cx="86%" cy="86%" r="48%">
+      <stop offset="0" stop-color="#D9A441" stop-opacity=".20"/>
+      <stop offset="1" stop-color="#D9A441" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="cloudflare-edge-stack-svg-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="rgba(22,26,23,.055)" stroke-width="1"/>
+    </pattern>
+    <filter id="cloudflare-edge-stack-svg-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0A0A0A" flood-opacity=".20"/>
+    </filter>
+  </defs>
+  <rect width="1440" height="900" fill="url(#cloudflare-edge-stack-svg-bg)"/>
+  <rect width="1440" height="900" fill="url(#cloudflare-edge-stack-svg-glow-a)"/>
+  <rect width="1440" height="900" fill="url(#cloudflare-edge-stack-svg-glow-b)"/>
+  <rect width="1440" height="900" fill="url(#cloudflare-edge-stack-svg-grid)"/>
+  
+  <g transform="translate(1060 82) scale(0.42)">
+    <defs>
+      <linearGradient id="cloudflare-edge-stack-svg-bird-g" x1="8" y1="17" x2="500" y2="493" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#2D7A3E"/>
+        <stop offset=".52" stop-color="#4A9D5F"/>
+        <stop offset="1" stop-color="#7CB342"/>
+      </linearGradient>
+      <linearGradient id="cloudflare-edge-stack-svg-bird-w" x1="230" y1="50" x2="500" y2="170" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#4A9D5F"/>
+        <stop offset="1" stop-color="#B8EA4F"/>
+      </linearGradient>
+    </defs>
+    <path fill="url(#cloudflare-edge-stack-svg-bird-g)" d="M8 110 46 73 46 110Z"/>
+    <path fill="url(#cloudflare-edge-stack-svg-bird-g)" d="M56 66H96L170 153 133 190H56Z"/>
+    <path fill="url(#cloudflare-edge-stack-svg-bird-g)" d="M150 190 305 26 305 190Z"/>
+    <path fill="url(#cloudflare-edge-stack-svg-bird-w)" d="M317 17 486 23 317 177Z"/>
+    <path fill="url(#cloudflare-edge-stack-svg-bird-w)" d="M421 99 500 55 474 46Z"/>
+    <path fill="url(#cloudflare-edge-stack-svg-bird-g)" d="M64 202H303L237 383Z"/>
+    <path fill="url(#cloudflare-edge-stack-svg-bird-g)" d="M307 229 306 493 227 440Z"/>
+  </g>
+  <text x="118" y="128" fill="#2D7A3E" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0">Pioneer Diagram</text>
+  <text x="118" y="236" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="70" font-weight="800" letter-spacing="0">Cloudflare edge stack</text>
+  <text x="120" y="304" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="28" font-weight="650">The brand surface for Worker, D1, Cache, Queue, Auth, and Observability.</text>
+  
+    <g>
+      <rect x="120" y="420" width="236" height="154" rx="18" fill="#FFFFFF" stroke="#4A9D5F" stroke-opacity=".42"/>
+      <circle cx="156" cy="460" r="16" fill="#4A9D5F" opacity=".18"/>
+      <circle cx="156" cy="460" r="7" fill="#4A9D5F"/>
+      <text x="182" y="465" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800">Worker</text>
+      <text x="144" y="512" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="650">HTTP runtime</text>
+      <path d="M374 496H411" stroke="#2D7A3E" stroke-width="5" stroke-linecap="round"/><path d="M411 496l-13-10v20Z" fill="#2D7A3E"/>
+    </g>
+    <g>
+      <rect x="375" y="420" width="236" height="154" rx="18" fill="#F8FAF5" stroke="#0284C7" stroke-opacity=".42"/>
+      <circle cx="411" cy="460" r="16" fill="#0284C7" opacity=".18"/>
+      <circle cx="411" cy="460" r="7" fill="#0284C7"/>
+      <text x="437" y="465" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800">D1</text>
+      <text x="399" y="512" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="650">database</text>
+      <path d="M629 496H666" stroke="#2D7A3E" stroke-width="5" stroke-linecap="round"/><path d="M666 496l-13-10v20Z" fill="#2D7A3E"/>
+    </g>
+    <g>
+      <rect x="630" y="420" width="236" height="154" rx="18" fill="#FFFFFF" stroke="#D9A441" stroke-opacity=".42"/>
+      <circle cx="666" cy="460" r="16" fill="#D9A441" opacity=".18"/>
+      <circle cx="666" cy="460" r="7" fill="#D9A441"/>
+      <text x="692" y="465" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800">Cache</text>
+      <text x="654" y="512" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="650">edge cache</text>
+      <path d="M884 496H921" stroke="#2D7A3E" stroke-width="5" stroke-linecap="round"/><path d="M921 496l-13-10v20Z" fill="#2D7A3E"/>
+    </g>
+    <g>
+      <rect x="885" y="420" width="236" height="154" rx="18" fill="#F8FAF5" stroke="#7CB342" stroke-opacity=".42"/>
+      <circle cx="921" cy="460" r="16" fill="#7CB342" opacity=".18"/>
+      <circle cx="921" cy="460" r="7" fill="#7CB342"/>
+      <text x="947" y="465" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800">Queue</text>
+      <text x="909" y="512" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="650">background job</text>
+      <path d="M1139 496H1176" stroke="#2D7A3E" stroke-width="5" stroke-linecap="round"/><path d="M1176 496l-13-10v20Z" fill="#2D7A3E"/>
+    </g>
+    <g>
+      <rect x="1140" y="420" width="236" height="154" rx="18" fill="#FFFFFF" stroke="#456275" stroke-opacity=".42"/>
+      <circle cx="1176" cy="460" r="16" fill="#456275" opacity=".18"/>
+      <circle cx="1176" cy="460" r="7" fill="#456275"/>
+      <text x="1202" y="465" fill="#161A17" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800">Logs</text>
+      <text x="1164" y="512" fill="#59645A" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="18" font-weight="650">feedback</text>
+      
+    </g>
+  
+    <g transform="translate(170 642)">
+      <rect x="0" y="0" width="148" height="62" rx="31" fill="#2D7A3E"/><text x="74" y="39" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="800">Worker</text><rect x="178" y="0" width="148" height="62" rx="31" fill="#161A17"/><text x="252" y="39" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="800">D1</text><rect x="356" y="0" width="148" height="62" rx="31" fill="#2D7A3E"/><text x="430" y="39" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="800">Cache</text><rect x="534" y="0" width="148" height="62" rx="31" fill="#161A17"/><text x="608" y="39" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="800">Queue</text><rect x="712" y="0" width="148" height="62" rx="31" fill="#2D7A3E"/><text x="786" y="39" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="800">Auth</text><rect x="890" y="0" width="148" height="62" rx="31" fill="#161A17"/><text x="964" y="39" text-anchor="middle" fill="#fff" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="800">Logs</text>
+    </g>
+</svg>

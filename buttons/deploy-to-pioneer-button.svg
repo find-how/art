@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="220" viewBox="0 0 760 220" role="img" aria-labelledby="title desc">
+  <title id="title">Deploy to Pioneer button</title>
+  <desc id="desc">Light Deploy to Pioneer button with the Pioneer bird mark.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-40%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#0a0a0a" flood-opacity="0.22"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#7cb342" flood-opacity="0.18"/>
+    </filter>
+    <linearGradient id="button" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f4f7ef"/>
+    </linearGradient>
+  </defs>
+  <rect width="760" height="220" fill="#f4f7ef"/>
+  <g filter="url(#shadow)">
+    <rect x="190" y="65" width="380" height="90" rx="18" fill="url(#button)" stroke="#dce5d7" stroke-width="2"/>
+    <rect x="190" y="65" width="380" height="90" rx="18" fill="#ffffff" opacity="0.22"/>
+    <image href="data:image/png;base64,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" x="224" y="88" width="44" height="44" preserveAspectRatio="xMidYMid meet"/>
+    <text x="292" y="105" fill="#161a17" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="28" font-weight="800">Deploy to Pioneer</text>
+    <text x="294" y="132" fill="#2d7a3e" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="13" font-weight="800" letter-spacing="1.2">EDGE FEEDBACK LOOP</text>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer code generated reveal</title>
+  <desc id="desc">Animated code generated reveal pattern.</desc>
+  <defs>
+    <style>
+      .line { opacity: 0; transform: translateY(10px); animation: in 1800ms ease infinite; }
+      .line:nth-child(2) { animation-delay: 120ms; }
+      .line:nth-child(3) { animation-delay: 240ms; }
+      .line:nth-child(4) { animation-delay: 360ms; }
+      .line:nth-child(5) { animation-delay: 480ms; }
+      .line:nth-child(6) { animation-delay: 600ms; }
+      .scan { animation: scan 1800ms ease-in-out infinite; }
+      @keyframes in { 0%, 18% { opacity: 0; transform: translateY(10px); } 36%, 88% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; } }
+      @keyframes scan { 0% { transform: translateY(62px); opacity: 0; } 34% { opacity: .85; } 80% { transform: translateY(300px); opacity: 0; } 100% { opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { .line, .scan { animation: none; opacity: 1; transform: none; } }
+    </style>
+  </defs>
+  <rect width="720" height="405" rx="0" fill="#0A0A0A"/>
+  <rect x="52" y="48" width="616" height="310" rx="18" fill="#111111" stroke="#262626"/>
+  <rect x="52" y="48" width="616" height="48" rx="18" fill="#171717"/>
+  <text x="82" y="79" fill="#A5DBB7" font-family="Commit Mono, Consolas, monospace" font-size="16" font-weight="800">app/routes/web.ts</text>
+  <g transform="translate(82 134)" font-family="Commit Mono, Consolas, monospace" font-size="17" font-weight="800">
+    <text class="line" x="0" y="0" fill="#7DD3FC">Route.post('/checkout', async ({ request, DB, Queue, Cache }) =&gt; {</text><text class="line" x="0" y="34" fill="#86EFAC">  const order = await DB.table('orders').create(await request.json())</text><text class="line" x="0" y="68" fill="#FACC15">  Cache.set(`order:${order.id}`, order, { ttl: 60 * 15 })</text><text class="line" x="0" y="102" fill="#38BDF8">  await Queue.dispatch('send-receipt', { orderId: order.id })</text><text class="line" x="0" y="136" fill="#FB923C">  return Response.json(order, { status: 201 })</text><text class="line" x="0" y="170" fill="#A5DBB7">}).middleware(['auth', 'verified'])</text>
+  </g>
+  <rect class="scan" x="72" y="0" width="576" height="18" rx="9" fill="#A5DBB7" opacity=".7"/>
+</svg>

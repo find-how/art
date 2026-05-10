@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer demo thumbnail</title>
+  <desc id="desc">Demo thumbnail with the message AI wrote the endpoint. Pioneer ran the app.</desc>
+  <rect width="1280" height="720" fill="#f4f7ef"/>
+  <rect x="70" y="70" width="1140" height="580" rx="20" fill="#ffffff" stroke="#dce5d7"/>
+  <rect x="642" y="70" width="568" height="580" rx="20" fill="#161a17"/>
+  <text x="120" y="178" fill="#2d7a3e" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="20" font-weight="800">PIONEER DEMO</text>
+  <text x="120" y="282" fill="#161a17" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="74" font-weight="840">AI wrote</text>
+  <text x="120" y="366" fill="#161a17" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="74" font-weight="840">the endpoint.</text>
+  <text x="120" y="472" fill="#2d7a3e" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="62" font-weight="820">Pioneer ran the app.</text>
+  <text x="692" y="148" fill="#737373" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="17">Wrangler local Worker</text>
+  <rect x="692" y="182" width="428" height="72" rx="10" fill="#202020" stroke="#2d7a3e" stroke-opacity="0.55"/>
+  <text x="720" y="226" fill="#a5dbb7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18">POST /checkout -> 201 Created</text>
+  <rect x="692" y="292" width="428" height="72" rx="10" fill="#202020" stroke="#262626"/>
+  <text x="720" y="337" fill="#e5e5e5" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18">D1 checkout-db write ok</text>
+  <rect x="692" y="402" width="428" height="72" rx="10" fill="#202020" stroke="#262626"/>
+  <text x="720" y="447" fill="#e5e5e5" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18">Queue send-receipt dispatched</text>
+  <rect x="692" y="518" width="260" height="58" rx="9" fill="#2d7a3e"/>
+  <text x="724" y="554" fill="#ffffff" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="22" font-weight="800">Deploy to Pioneer</text>
+</svg>

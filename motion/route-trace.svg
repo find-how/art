@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer route trace</title>
+  <desc id="desc">Animated route to infrastructure trace pattern.</desc>
+  <defs>
+    <style>
+      .trace { stroke-dasharray: 680; stroke-dashoffset: 680; animation: trace 2100ms ease-in-out infinite; }
+      .spark { animation: spark 2100ms ease-in-out infinite; offset-path: path("M110 206 C220 96 378 96 458 204 S575 314 628 206"); }
+      @keyframes trace { 0% { stroke-dashoffset: 680; opacity: .3; } 52% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: .18; } }
+      @keyframes spark { 0% { offset-distance: 0%; opacity: 0; } 20% { opacity: 1; } 72% { offset-distance: 100%; opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+      @media (prefers-reduced-motion: reduce) { .trace, .spark { animation: none; stroke-dashoffset: 0; opacity: 1; } }
+    </style>
+  </defs>
+  <rect width="720" height="405" fill="#0A0A0A"/>
+  <path class="trace" d="M110 206 C220 96 378 96 458 204 S575 314 628 206" fill="none" stroke="#A5DBB7" stroke-width="8" stroke-linecap="round"/>
+  <circle class="spark" r="10" fill="#D9A441"/>
+  <rect x="58" y="160" width="120" height="92" rx="18" fill="#2D7A3E"/>
+  <text x="118" y="213" text-anchor="middle" fill="#FFFFFF" font-family="Commit Mono, Consolas, monospace" font-size="18" font-weight="850">Route</text>
+  <rect x="540" y="160" width="128" height="92" rx="18" fill="#456275"/>
+  <text x="604" y="213" text-anchor="middle" fill="#FFFFFF" font-family="Commit Mono, Consolas, monospace" font-size="18" font-weight="850">Edge</text>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2071" viewBox="0 0 1600 2071" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer Cloudflare Workers Launchpad one-pager</title>
+  <desc id="desc">A one-page launchpad summary for Pioneer on Cloudflare Workers.</desc>
+  <defs>
+    <linearGradient id="page-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.62" stop-color="#f4f7ef"/>
+      <stop offset="1" stop-color="#eef4e8"/>
+    </linearGradient>
+    <linearGradient id="button-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#161a17"/>
+      <stop offset="0.52" stop-color="#1e4f2b"/>
+      <stop offset="1" stop-color="#4a9d5f"/>
+    </linearGradient>
+    <filter id="paper-shadow" x="-10%" y="-5%" width="120%" height="115%">
+      <feDropShadow dx="0" dy="32" stdDeviation="28" flood-color="#161a17" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .sans { font-family: "Instrument Sans", Inter, Arial, sans-serif; letter-spacing: 0; }
+      .mono { font-family: "Commit Mono", "SFMono-Regular", Consolas, monospace; letter-spacing: 0; }
+      .eyebrow { fill: #2d7a3e; font-size: 28px; font-weight: 850; }
+      .title { fill: #161a17; font-size: 92px; font-weight: 850; }
+      .section { fill: #161a17; font-size: 38px; font-weight: 820; }
+      .body { fill: #455047; font-size: 28px; font-weight: 520; }
+      .small { fill: #5e675e; font-size: 22px; font-weight: 650; }
+      .monoText { fill: #e5e5e5; font-size: 22px; }
+      .pillText { fill: #1e4f2b; font-size: 20px; font-weight: 850; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="2071" fill="url(#page-bg)"/>
+  <rect x="108" y="92" width="1384" height="1888" rx="26" fill="#ffffff" filter="url(#paper-shadow)"/>
+  <rect x="108" y="92" width="1384" height="1888" rx="26" fill="none" stroke="#dce5d7"/>
+
+  <g transform="translate(174 176)">
+    <text class="sans eyebrow" x="0" y="0">CLOUDFLARE WORKERS LAUNCHPAD</text>
+    <text class="sans title" x="0" y="124">Pioneer</text>
+    <text class="sans title" x="0" y="222">turns business logic</text>
+    <text class="sans title" x="0" y="320">into a running edge app.</text>
+    <text class="sans body" x="0" y="392">Cloudflare has the primitives. Pioneer gives developers the</text>
+    <text class="sans body" x="0" y="432">framework layer above Workers, D1, Cache, Queues, auth, logs,</text>
+    <text class="sans body" x="0" y="472">local feedback, and deploy.</text>
+
+    <g transform="translate(0 548)">
+      <rect width="1260" height="338" rx="20" fill="#111713"/>
+      <rect width="1260" height="58" rx="20" fill="#171f1a"/>
+      <circle cx="34" cy="29" r="7" fill="#d9a441"/>
+      <circle cx="58" cy="29" r="7" fill="#7cb342"/>
+      <circle cx="82" cy="29" r="7" fill="#456275"/>
+      <text class="mono" x="116" y="37" fill="#e5e5e5" font-size="20">app/routes/web.ts</text>
+      <text class="mono monoText" x="36" y="112">Route.post("/checkout", async ({ request }) =&gt; {</text>
+      <text class="mono monoText" x="74" y="156">const order = await DB.table("orders").create(input);</text>
+      <text class="mono monoText" x="74" y="200">await Cache.set(`order:${order.id}`, order);</text>
+      <text class="mono monoText" x="74" y="244">await Queue.dispatch("send-receipt", { orderId: order.id });</text>
+      <text class="mono monoText" x="74" y="288">return Response.json({ ok: true, order }, { status: 201 });</text>
+    </g>
+
+    <g transform="translate(0 946)">
+      <text class="sans section" x="0" y="0">Product proof</text>
+      <rect x="0" y="44" width="392" height="218" rx="16" fill="#f4f7ef" stroke="#dce5d7"/>
+      <text class="sans" x="28" y="96" fill="#161a17" font-size="28" font-weight="820">Business logic first</text>
+      <text class="sans small" x="28" y="140">Developers write the route,</text>
+      <text class="sans small" x="28" y="172">not the platform wiring.</text>
+      <rect x="434" y="44" width="392" height="218" rx="16" fill="#f4f7ef" stroke="#dce5d7"/>
+      <text class="sans" x="462" y="96" fill="#161a17" font-size="28" font-weight="820">Cloudflare-shaped</text>
+      <text class="sans small" x="462" y="140">Worker, D1, Cache, Queue,</text>
+      <text class="sans small" x="462" y="172">auth, logs, and deploy path.</text>
+      <rect x="868" y="44" width="392" height="218" rx="16" fill="#f4f7ef" stroke="#dce5d7"/>
+      <text class="sans" x="896" y="96" fill="#161a17" font-size="28" font-weight="820">Local proof loop</text>
+      <text class="sans small" x="896" y="140">Wrangler runs it locally.</text>
+      <text class="mono" x="896" y="180" fill="#2d7a3e" font-size="22" font-weight="850">POST /checkout 201</text>
+    </g>
+
+    <g transform="translate(0 1292)">
+      <text class="sans section" x="0" y="0">The wedge</text>
+      <text class="sans body" x="0" y="58">AI can generate useful application code. Generated code still needs</text>
+      <text class="sans body" x="0" y="98">infrastructure. Pioneer closes that gap by turning business intent</text>
+      <text class="sans body" x="0" y="138">into a running Cloudflare-native application.</text>
+
+      <g transform="translate(0 204)">
+        <rect width="250" height="62" rx="31" fill="#e2f0d8"/>
+        <text class="mono pillText" x="34" y="40">Route -&gt; Worker</text>
+        <rect x="278" width="206" height="62" rx="31" fill="#e2f0d8"/>
+        <text class="mono pillText" x="318" y="40">DB -&gt; D1</text>
+        <rect x="512" width="270" height="62" rx="31" fill="#e2f0d8"/>
+        <text class="mono pillText" x="552" y="40">Cache -&gt; Edge</text>
+        <rect x="810" width="282" height="62" rx="31" fill="#e2f0d8"/>
+        <text class="mono pillText" x="850" y="40">Queue -&gt; Jobs</text>
+      </g>
+    </g>
+
+    <g transform="translate(0 1654)">
+      <rect width="1260" height="206" rx="20" fill="#161a17"/>
+      <text class="sans" x="42" y="70" fill="#ffffff" font-size="42" font-weight="850">Write business logic. Ship edge infrastructure.</text>
+      <text class="sans small" x="42" y="118" fill="#cbd8c5">Deploy to Pioneer gives the demo a branded action, not a generic platform handoff.</text>
+      <g transform="translate(914 56)">
+        <rect width="292" height="82" rx="13" fill="url(#button-bg)"/>
+        <rect x="18" y="18" width="46" height="46" rx="10" fill="#f4f7ef"/>
+        <path d="M33 39 L45 27 L55 44 L44 41 L36 55 Z" fill="#2d7a3e"/>
+        <text class="sans" x="82" y="38" fill="#ffffff" font-size="22" font-weight="850">Deploy to Pioneer</text>
+        <text class="mono" x="82" y="61" fill="#cfe8d4" font-size="13" font-weight="850">ONE-CLICK WRANGLER DEPLOY</text>
+      </g>
+    </g>
+  </g>
+</svg>

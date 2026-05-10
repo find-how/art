@@ -1,0 +1,20 @@
+{
+  "name": "@find-how/pioneer-brand-assets",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Wrangler-deployable brand asset portal for Pioneer.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "npm run build && node --check src/index.js && node --check public/app.js && node --check public/interactive-components.js",
+    "deck": "node scripts/generate-pitch-deck.mjs",
+    "dev": "WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler dev",
+    "deploy": "WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler deploy",
+    "deploy:dry-run": "WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler deploy --dry-run",
+    "preview": "WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler dev --local"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5",
+    "wrangler": "^4.15.2"
+  }
+}

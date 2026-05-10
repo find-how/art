@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer 8 lines do the work</title>
+  <desc id="desc">Create order. Cache it. Queue receipt. Return success.</desc>
+  
+  <defs>
+    <linearGradient id="square-code-to-edge-svg-bg" x1="0" y1="0" x2="1080" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A0A0A"/>
+      <stop offset=".58" stop-color="#101A13"/>
+      <stop offset="1" stop-color="#183522"/>
+    </linearGradient>
+    <radialGradient id="square-code-to-edge-svg-glow-a" cx="22%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#A5DBB7" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#A5DBB7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="square-code-to-edge-svg-glow-b" cx="86%" cy="86%" r="48%">
+      <stop offset="0" stop-color="#D9A441" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#D9A441" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="square-code-to-edge-svg-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
+    </pattern>
+    <filter id="square-code-to-edge-svg-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0A0A0A" flood-opacity=".46"/>
+    </filter>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#square-code-to-edge-svg-bg)"/>
+  <rect width="1080" height="1080" fill="url(#square-code-to-edge-svg-glow-a)"/>
+  <rect width="1080" height="1080" fill="url(#square-code-to-edge-svg-glow-b)"/>
+  <rect width="1080" height="1080" fill="url(#square-code-to-edge-svg-grid)"/>
+  
+  <g transform="translate(820 830) scale(0.42)">
+    <defs>
+      <linearGradient id="square-code-to-edge-svg-bird-g" x1="8" y1="17" x2="500" y2="493" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#2D7A3E"/>
+        <stop offset=".52" stop-color="#4A9D5F"/>
+        <stop offset="1" stop-color="#7CB342"/>
+      </linearGradient>
+      <linearGradient id="square-code-to-edge-svg-bird-w" x1="230" y1="50" x2="500" y2="170" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#4A9D5F"/>
+        <stop offset="1" stop-color="#B8EA4F"/>
+      </linearGradient>
+    </defs>
+    <path fill="url(#square-code-to-edge-svg-bird-g)" d="M8 110 46 73 46 110Z"/>
+    <path fill="url(#square-code-to-edge-svg-bird-g)" d="M56 66H96L170 153 133 190H56Z"/>
+    <path fill="url(#square-code-to-edge-svg-bird-g)" d="M150 190 305 26 305 190Z"/>
+    <path fill="url(#square-code-to-edge-svg-bird-w)" d="M317 17 486 23 317 177Z"/>
+    <path fill="url(#square-code-to-edge-svg-bird-w)" d="M421 99 500 55 474 46Z"/>
+    <path fill="url(#square-code-to-edge-svg-bird-g)" d="M64 202H303L237 383Z"/>
+    <path fill="url(#square-code-to-edge-svg-bird-g)" d="M307 229 306 493 227 440Z"/>
+  </g>
+  <rect x="59" y="92" width="961" height="896" rx="28" fill="rgba(10,10,10,.44)" stroke="rgba(255,255,255,.12)"/>
+  <text x="97" y="184" fill="#A5DBB7" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0">Pioneer</text>
+  <text x="97" y="335" fill="#FFFFFF" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="64" font-weight="800" letter-spacing="0">8 lines do</text>
+<text x="97" y="397.72" fill="#FFFFFF" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="64" font-weight="800" letter-spacing="0">the work</text>
+  <text x="97" y="745" fill="#B7C8B7" font-family="Inter, Instrument Sans, Arial, sans-serif" font-size="26" font-weight="650">Create order. Cache it. Queue receipt. Return success.</text>
+  
+  <g filter="url(#square-code-to-edge-svg-shadow)">
+    <clipPath id="square-code-to-edge-svg-codeclip">
+      <rect x="562" y="238" width="432" height="248" rx="18"/>
+    </clipPath>
+    <rect x="562" y="238" width="432" height="248" rx="18" fill="#0A0A0A" stroke="#262626"/>
+    <rect x="562" y="238" width="432" height="48" rx="18" fill="#171717"/>
+    <circle cx="588" cy="262" r="6" fill="#EF4444"/>
+    <circle cx="610" cy="262" r="6" fill="#F59E0B"/>
+    <circle cx="632" cy="262" r="6" fill="#22C55E"/>
+    <text x="658" y="269" fill="#A5DBB7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="16" font-weight="700">app/routes/web.ts</text>
+    <g clip-path="url(#square-code-to-edge-svg-codeclip)">
+      
+      <rect x="582" y="288" width="362" height="28" rx="6" fill="#7DD3FC" opacity=".09"/>
+      <text x="592" y="310" fill="#7DD3FC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">Route.post('/checkout', async ({ request, DB, Queue, Cache }) =&gt; {</text>
+      <rect x="582" y="317" width="312" height="28" rx="6" fill="#86EFAC" opacity=".09"/>
+      <text x="592" y="339" fill="#86EFAC" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  const order = await DB.table('orders').create(await request.json())</text>
+      <rect x="582" y="346" width="312" height="28" rx="6" fill="#FACC15" opacity=".09"/>
+      <text x="592" y="368" fill="#FACC15" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  Cache.set(`order:${order.id}`, order, { ttl: 60 * 15 })</text>
+      <rect x="582" y="375" width="312" height="28" rx="6" fill="#38BDF8" opacity=".09"/>
+      <text x="592" y="397" fill="#38BDF8" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  await Queue.dispatch('send-receipt', { orderId: order.id })</text>
+      <rect x="582" y="404" width="312" height="28" rx="6" fill="#FB923C" opacity=".09"/>
+      <text x="592" y="426" fill="#FB923C" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">  return Response.json(order, { status: 201 })</text>
+      <rect x="582" y="433" width="312" height="28" rx="6" fill="#A5DBB7" opacity=".09"/>
+      <text x="592" y="455" fill="#A5DBB7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="19" font-weight="700">}).middleware(['auth', 'verified'])</text>
+    </g>
+  </g>
+  <text x="97" y="907" fill="#DCE5D7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="700">find.how/pioneer</text>
+</svg>

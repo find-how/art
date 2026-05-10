@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer deploy button artwork</title>
+  <desc id="desc">Dark green Deploy to Pioneer button with the Pioneer bird mark and a diagonal shine treatment.</desc>
+  <defs>
+    <linearGradient id="page" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111713"/>
+      <stop offset="0.55" stop-color="#1b3f28"/>
+      <stop offset="1" stop-color="#2d7a3e"/>
+    </linearGradient>
+    <radialGradient id="sprout" cx="16%" cy="0%" r="48%">
+      <stop offset="0" stop-color="#7cb342" stop-opacity="0.54"/>
+      <stop offset="1" stop-color="#7cb342" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gold" cx="88%" cy="100%" r="46%">
+      <stop offset="0" stop-color="#d9a441" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#d9a441" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shine" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.46" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="0.62" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="hatch" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(135)">
+      <path d="M0 0H1V16H0Z" fill="#ffffff" opacity="0.055"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-40%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="28" stdDeviation="28" flood-color="#0a0a0a" flood-opacity="0.34"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#7cb342" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="520" rx="0" fill="#f4f7ef"/>
+  <rect x="60" y="60" width="1080" height="400" rx="16" fill="#161a17"/>
+  <rect x="60" y="60" width="1080" height="400" rx="16" fill="url(#sprout)"/>
+  <rect x="60" y="60" width="1080" height="400" rx="16" fill="url(#gold)"/>
+  <path d="M100 126H1100" stroke="#f4f7ef" stroke-opacity="0.08"/>
+  <path d="M100 394H1100" stroke="#f4f7ef" stroke-opacity="0.08"/>
+
+  <g filter="url(#shadow)">
+    <rect x="360" y="196" width="480" height="128" rx="22" fill="url(#page)" stroke="#7cb342" stroke-opacity="0.5" stroke-width="2"/>
+    <rect x="360" y="196" width="480" height="128" rx="22" fill="url(#hatch)"/>
+    <path d="M322 180L650 180L520 340L192 340Z" fill="url(#shine)" opacity="0.78"/>
+    <rect x="386" y="222" width="76" height="76" rx="16" fill="#f4f7ef" stroke="#ffffff" stroke-opacity="0.72"/>
+    <image href="data:image/png;base64,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" x="403" y="239" width="42" height="42" preserveAspectRatio="xMidYMid meet"/>
+    <text x="488" y="256" fill="#ffffff" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="28" font-weight="800">Deploy to Pioneer</text>
+    <text x="489" y="287" fill="#f4f7ef" fill-opacity="0.78" font-family="SFMono-Regular, Consolas, monospace" font-size="15" font-weight="700" letter-spacing="1.2">WRANGLER LOCAL FEEDBACK</text>
+  </g>
+
+  <text x="600" y="126" text-anchor="middle" fill="#cfe7b7" font-family="SFMono-Regular, Consolas, monospace" font-size="16" font-weight="700" letter-spacing="2">BUTTON ASSET</text>
+  <text x="600" y="382" text-anchor="middle" fill="#f4f7ef" fill-opacity="0.76" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="650">Dark primary treatment from the Demo Wrangler app</text>
+</svg>

@@ -1,0 +1,84 @@
+name: Brand Portal
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Deploy to https://brand.find.how after validation.
+        required: true
+        type: boolean
+        default: true
+
+concurrency:
+  group: brand-find-how-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Wrangler App
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and syntax check
+        run: npm run check
+
+      - name: Validate Wrangler deploy bundle
+        run: npm run deploy:dry-run
+
+  deploy:
+    name: Deploy To Cloudflare
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.deploy)
+    environment:
+      name: production
+      url: https://brand.find.how
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Deploy Worker
+        run: npm run deploy
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+      - name: Smoke test production
+        run: |
+          curl --fail --silent --show-error --retry 5 --retry-delay 3 https://brand.find.how/api/health
+          curl --fail --silent --show-error --retry 5 --retry-delay 3 https://brand.find.how/assets/manifest.json > /tmp/brand-assets-manifest.json

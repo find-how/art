@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer X banner</title>
+  <desc id="desc">Pioneer X banner.</desc>
+  <rect width="1500" height="500" fill="#ffffff"/>
+  <rect x="60" y="60" width="1380" height="380" rx="18" fill="#f4f7ef" stroke="#dce5d7"/>
+  <rect x="860" y="60" width="580" height="380" rx="18" fill="#161a17"/>
+  <path d="M902 118H1392" stroke="#ffffff" stroke-opacity="0.1"/>
+  <text x="110" y="180" fill="#2d7a3e" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="20" font-weight="800">PIONEER</text>
+  <text x="110" y="260" fill="#161a17" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="62" font-weight="820">Write the route.</text>
+  <text x="110" y="330" fill="#161a17" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="62" font-weight="820">Pioneer wires the rest.</text>
+  <text x="902" y="180" fill="#cfe7b7" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="800">POST /checkout</text>
+  <text x="902" y="238" fill="#ffffff" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="38" font-weight="780">Worker + D1 + Cache</text>
+  <text x="902" y="292" fill="#ffffff" font-family="Instrument Sans, Inter, ui-sans-serif, system-ui, sans-serif" font-size="38" font-weight="780">Queue + Logs</text>
+  <text x="902" y="365" fill="#d9a441" font-family="Commit Mono, SFMono-Regular, Consolas, monospace" font-size="18" font-weight="800">201 CREATED</text>
+</svg>

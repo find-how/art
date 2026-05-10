@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Pioneer landing page hero</title>
+  <desc id="desc">A Pioneer landing page hero showing business logic becoming Cloudflare edge infrastructure.</desc>
+  <defs>
+    <linearGradient id="hero-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.58" stop-color="#f4f7ef"/>
+      <stop offset="1" stop-color="#eef4e8"/>
+    </linearGradient>
+    <linearGradient id="deploy-gradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#161a17"/>
+      <stop offset="0.5" stop-color="#1e4f2b"/>
+      <stop offset="1" stop-color="#4a9d5f"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#161a17" flood-opacity="0.16"/>
+    </filter>
+    <style>
+      .sans { font-family: "Instrument Sans", Inter, Arial, sans-serif; }
+      .mono { font-family: "Commit Mono", "SFMono-Regular", Consolas, monospace; }
+      .eyebrow { fill: #2d7a3e; font-size: 24px; font-weight: 800; letter-spacing: 0; }
+      .headline { fill: #161a17; font-size: 88px; font-weight: 800; letter-spacing: 0; }
+      .body { fill: #424d43; font-size: 32px; font-weight: 520; letter-spacing: 0; }
+      .small { fill: #5e675e; font-size: 20px; font-weight: 650; letter-spacing: 0; }
+      .code { fill: #e5e5e5; font-size: 22px; letter-spacing: 0; }
+      .code-muted { fill: #8b938b; font-size: 20px; letter-spacing: 0; }
+      .green { fill: #7cb342; }
+      .gold { fill: #d9a441; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#hero-bg)"/>
+  <g opacity="0.32">
+    <path d="M72 714 C 330 612, 516 748, 760 642 S 1170 404, 1528 544" fill="none" stroke="#a5dbb7" stroke-width="3"/>
+    <path d="M104 778 C 364 688, 558 802, 822 700 S 1220 516, 1498 642" fill="none" stroke="#d9a441" stroke-width="3"/>
+  </g>
+
+  <g transform="translate(92 98)">
+    <text class="sans eyebrow" x="0" y="0">PIONEER BY FIND.HOW</text>
+    <text class="sans headline" x="0" y="112">Write business</text>
+    <text class="sans headline" x="0" y="204">logic.</text>
+    <text class="sans headline" x="0" y="296">Ship edge</text>
+    <text class="sans headline" x="0" y="388">infrastructure.</text>
+    <text class="sans body" x="0" y="466">Ask AI for the endpoint. Pioneer turns</text>
+    <text class="sans body" x="0" y="508">the generated TypeScript into a running</text>
+    <text class="sans body" x="0" y="550">Cloudflare-shaped app.</text>
+
+    <g transform="translate(0 602)" filter="url(#soft-shadow)">
+      <rect width="330" height="78" rx="12" fill="url(#deploy-gradient)"/>
+      <rect x="17" y="16" width="46" height="46" rx="10" fill="#f4f7ef"/>
+      <path d="M32 36 L44 24 L54 41 L43 38 L35 52 Z" fill="#2d7a3e"/>
+      <text class="sans" x="82" y="34" fill="#ffffff" font-size="24" font-weight="800">Deploy to Pioneer</text>
+      <text class="mono" x="82" y="58" fill="#cfe8d4" font-size="14" font-weight="800">ONE-CLICK WRANGLER DEPLOY</text>
+    </g>
+  </g>
+
+  <g transform="translate(790 92)" filter="url(#soft-shadow)">
+    <rect width="690" height="628" rx="18" fill="#111713"/>
+    <rect x="0" y="0" width="690" height="58" rx="18" fill="#171f1a"/>
+    <circle cx="30" cy="29" r="7" fill="#d9a441"/>
+    <circle cx="54" cy="29" r="7" fill="#7cb342"/>
+    <circle cx="78" cy="29" r="7" fill="#456275"/>
+    <text class="mono" x="112" y="36" fill="#e5e5e5" font-size="18">app/routes/web.ts</text>
+
+    <g transform="translate(34 88)">
+      <text class="mono code-muted" x="0" y="0">import { Route, DB, Cache, Queue } from "@find-how/pioneer";</text>
+      <text class="mono code" x="0" y="48"><tspan class="green">Route.post</tspan>("/checkout", async ({ request }) =&gt; {</text>
+      <text class="mono code" x="28" y="88">const input = await request.json();</text>
+      <text class="mono code" x="28" y="128">const order = await <tspan class="green">DB.table</tspan>("orders").create(input);</text>
+      <text class="mono code" x="28" y="168">await <tspan class="green">Cache.set</tspan>(`order:${order.id}`, order);</text>
+      <text class="mono code" x="28" y="208">await <tspan class="green">Queue.dispatch</tspan>("send-receipt", { orderId });</text>
+      <text class="mono code" x="28" y="248">return Response.json({ ok: true, order }, { status: 201 });</text>
+      <text class="mono code" x="0" y="288">}).middleware(["auth", "verified"]);</text>
+    </g>
+
+    <g transform="translate(34 436)">
+      <rect width="622" height="150" rx="14" fill="#f4f7ef"/>
+      <text class="sans" x="24" y="42" fill="#161a17" font-size="25" font-weight="800">Pioneer inferred the app shape</text>
+      <text class="mono" x="24" y="78" fill="#2d7a3e" font-size="18">Worker route  D1 binding  Cache  Queue  Logs</text>
+      <rect x="24" y="102" width="156" height="30" rx="15" fill="#e2f0d8"/>
+      <text class="mono" x="44" y="123" fill="#1e4f2b" font-size="15" font-weight="800">201 Created</text>
+      <rect x="194" y="102" width="180" height="30" rx="15" fill="#fff2d4"/>
+      <text class="mono" x="214" y="123" fill="#8a5a00" font-size="15" font-weight="800">Wrangler local</text>
+      <rect x="388" y="102" width="156" height="30" rx="15" fill="#e5eef4"/>
+      <text class="mono" x="408" y="123" fill="#456275" font-size="15" font-weight="800">Observable</text>
+    </g>
+  </g>
+
+  <g transform="translate(828 760)">
+    <rect width="220" height="62" rx="10" fill="#ffffff" stroke="#dce5d7"/>
+    <text class="mono" x="24" y="38" fill="#2d7a3e" font-size="18" font-weight="800">Route -&gt; Worker</text>
+    <rect x="244" width="188" height="62" rx="10" fill="#ffffff" stroke="#dce5d7"/>
+    <text class="mono" x="268" y="38" fill="#2d7a3e" font-size="18" font-weight="800">DB -&gt; D1</text>
+    <rect x="456" width="224" height="62" rx="10" fill="#ffffff" stroke="#dce5d7"/>
+    <text class="mono" x="480" y="38" fill="#2d7a3e" font-size="18" font-weight="800">Queue -&gt; Jobs</text>
+  </g>
+</svg>
