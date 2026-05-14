@@ -2,14 +2,79 @@ import { brandConfig } from "./brand-config.js";
 
 const encoder = new TextEncoder();
 
+const PUBLIC_CORS_HEADERS = {
+  "access-control-allow-origin": "*",
+  "access-control-allow-methods": "GET, HEAD, OPTIONS",
+  "access-control-allow-headers": "Content-Type, If-None-Match, If-Modified-Since, Range",
+  "access-control-expose-headers": "Content-Length, Content-Type, ETag, Last-Modified",
+  "access-control-max-age": "86400",
+  "cross-origin-resource-policy": "cross-origin",
+  "timing-allow-origin": "*"
+};
+
+const FINGERPRINT_PATTERN = /\.[a-f0-9]{8,}\.[a-z0-9]+$/i;
+
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function cacheControlFor(pathname, contentType) {
+  if (contentType.startsWith("text/html")) {
+    return "public, max-age=0, must-revalidate";
+  }
+
+  if (FINGERPRINT_PATTERN.test(pathname)) {
+    return "public, max-age=31536000, immutable";
+  }
+
+  if (pathname.startsWith("/assets/")) {
+    return "public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400";
+  }
+
+  return "public, max-age=300, s-maxage=86400, stale-while-revalidate=86400";
+}
+
+function withPublicHeaders(response, url) {
+  const headers = new Headers(response.headers);
+  const contentType = headers.get("content-type") || "";
+
+  headers.set("cache-control", cacheControlFor(url.pathname, contentType));
+
+  for (const [key, value] of Object.entries(PUBLIC_CORS_HEADERS)) {
+    headers.set(key, value);
+  }
+
+  headers.set("x-content-type-options", "nosniff");
+
+  const vary = headers.get("vary");
+  if (!vary) {
+    headers.set("vary", "Accept-Encoding, Origin");
+  } else if (!/accept-encoding/i.test(vary)) {
+    headers.set("vary", `${vary}, Accept-Encoding`);
+  }
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers
+  });
+}
+
+function corsPreflightResponse() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      ...PUBLIC_CORS_HEADERS,
+      "cache-control": "public, max-age=86400"
+    }
+  });
 }
 
 function json(data, init = {}) {
   return Response.json(data, {
     headers: {
       "cache-control": "public, max-age=300",
+      ...PUBLIC_CORS_HEADERS,
       ...init.headers
     },
     ...init
@@ -127,6 +192,10 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    if (request.method === "OPTIONS") {
+      return corsPreflightResponse();
+    }
+
     if (url.pathname === "/api/health") {
       return json({
         ok: true,
@@ -148,7 +217,8 @@ export default {
       return runEdgeArtisan(request, env);
     }
 
-    return env.ASSETS.fetch(request);
+    const assetResponse = await env.ASSETS.fetch(request);
+    return withPublicHeaders(assetResponse, url);
   }
 };
 
