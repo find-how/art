@@ -1,0 +1,25 @@
+/*
+  X-Content-Type-Options: nosniff
+  Vary: Accept-Encoding, Origin
+
+/assets/*
+  Cache-Control: public, max-age=3600, s-maxage=31536000, stale-while-revalidate=86400
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, If-None-Match, If-Modified-Since, Range
+  Access-Control-Expose-Headers: Content-Length, Content-Type, ETag, Last-Modified
+  Access-Control-Max-Age: 86400
+  Cross-Origin-Resource-Policy: cross-origin
+  Timing-Allow-Origin: *
+
+/brand.json
+  Cache-Control: public, max-age=300, s-maxage=86400, stale-while-revalidate=86400
+  Access-Control-Allow-Origin: *
+  Cross-Origin-Resource-Policy: cross-origin
+  Timing-Allow-Origin: *
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
