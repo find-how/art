@@ -68,6 +68,7 @@ These assets adapt the strongest surfaces from `~/Code/Demo`: AI prompt cards, M
 | `motion/` | Animated SVG loops for code generation, terminal streaming, service binding pulses, and route tracing. |
 | `buttons/` | Demo-derived Deploy to Pioneer button artwork, CSS, and HTML snippets for one-click deployment entry points. |
 | `brand-kit/` | Source-of-truth positioning, messaging, tokens, UI rules, canonical code snippets, demo scripts, and launch assets. |
+| `brand-kit/ui/experience-principles.md` | Applied UI rules for affordances, hierarchy, semantic color, states, motion, overlays, and dark mode. |
 | `brand-kit/ui/components/` | Reusable interactive webview snippets for Monaco, xterm, Edge Artisan, docs search, and find.how navigation. |
 
 ## Edge Artisan Runtime
@@ -75,6 +76,36 @@ These assets adapt the strongest surfaces from `~/Code/Demo`: AI prompt cards, M
 The brand portal now includes a real `/__artisan` Worker endpoint backed by the `ARTISAN_SESSIONS` Durable Object. The browser xterm component posts an Artisan-style command, then renders streamed NDJSON output from the Durable Object command session.
 
 The runtime uses Durable Object storage by default and can attach optional Cloudflare bindings for `EDGE_ARTISAN_DB` (D1), `EDGE_ARTISAN_KV` (KV), `EDGE_ARTISAN_REPORTS` (R2), and `EDGE_ARTISAN_QUEUE` (Queues).
+
+## Private Tailwind Plus Component Browser
+
+Licensed Tailwind Plus downloads can be imported into a private, gitignored source directory and rendered as Pioneer-branded component previews under `/plus/`.
+
+```bash
+npm run plus:import -- --dry-run
+npm run plus:import
+npm run dev
+```
+
+The importer reads `~/Downloads/marketinguiv4` and `~/Downloads/appuiv4` by default. Local dev builds and exposes `/plus/` automatically, and the main brand kit shows a Plus UI link when the private catalog is reachable. Generated Plus output is not part of the normal public build. Production access to `/plus/*`, `/api/plus/*`, and private Plus MCP tools must stay behind Cloudflare Access; `npm run deploy:plus` injects the required `PLUS_COMPONENTS_ENABLED:true` Worker var.
+
+The Plus browser includes Preview, HTML, React, and Vue tabs. Source tabs render a lightweight read-only syntax-highlighted editor frame with a one-click clipboard button that copies the exact generated source.
+
+## Brand API And MCP
+
+The Worker exposes public brand context and private Plus component APIs for automation:
+
+| Route | Use |
+|------|-----|
+| `/api/brand/context` | Agent-ready positioning, colors, typography, asset URLs, UI principles, deploy actions, and Plus entrypoints. |
+| `/api/assets` | Generated public brand asset manifest. |
+| `/api/plus/components` | Private searchable Plus component catalog. |
+| `/api/plus/source?id=<id>&format=react` | Private raw Plus component source. |
+| `/mcp` | Streamable HTTP MCP endpoint for agents using `brand_get_context`, asset tools, and gated Plus component tools. |
+
+The MCP endpoint is intended to let coding agents build Pioneer frontends from `brand.find.how` context: logos, icons, URLs, colors, typography, fonts, buttons, marketing components, and application components. Public brand tools are available broadly; Plus tools reuse the same private access gate as `/plus/`.
+
+For component generation, agents should call `plus_find_component_code` first with a natural-language request such as "a hero for a launch page", "a sidebar shell for a dashboard", or "a pricing section for the marketing page". The tool ranks the private Pioneer-branded Tailwind Plus catalog, returns the best matching React, Vue, or HTML source, and includes alternative matches for fallback. Lower-level `plus_search_components` and `plus_get_component_source` remain available when an agent already knows the exact category or component id.
 
 ## Go-To-Market Source Assets
 

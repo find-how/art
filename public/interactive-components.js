@@ -176,10 +176,12 @@ export class EdgeArtisanSession {
 </div>`,
   "findhow-nav": String.raw`<nav class="findhow-nav">
   <a class="findhow-logo" href="/">Pioneer</a>
-  <button data-flyout="products">Products</button>
+  <button data-flyout="platform">Platform</button>
   <button data-flyout="framework">Framework</button>
   <button data-flyout="resources">Resources</button>
   <a href="/docs">Docs</a>
+  <button data-open-search>Search docs</button>
+  <a href="/deploy">Deploy</a>
   <button data-mobile-menu>Menu</button>
 </nav>
 <div class="findhow-flyout" hidden></div>
@@ -196,15 +198,15 @@ const docsItems = [
 ];
 
 const flyoutData = {
-  products: {
-    title: "Products",
+  platform: {
+    title: "Platform",
     columns: [
       {
         heading: "Pioneer",
         items: [
           ["Framework", "Full-stack TypeScript for Cloudflare-native apps."],
           ["Deploy", "One-click Wrangler feedback and deploy flow."],
-          ["Brand Kit", "Logos, motion, cards, and UI components."]
+          ["Brand Kit", "Logos, motion, experience rules, and UI components."]
         ]
       },
       {
@@ -278,7 +280,99 @@ const flyoutData = {
         items: [
           ["Logo", "Mark, wordmark, app icons."],
           ["Motion", "AI thinking and deploy loops."],
-          ["Components", "Search, nav, editor, terminal."]
+          ["Experience", "States, hierarchy, dark mode, and semantic color."]
+        ]
+      }
+    ]
+  }
+};
+
+const siteNavData = {
+  platform: {
+    title: "Platform",
+    columns: [
+      {
+        heading: "Brand portal",
+        items: [
+          ["Brand kit", "Config-driven sections with preview and code tabs.", "#brand-kit"],
+          ["Start here", "Positioning, messaging, source files, and canonical code.", "#brand-kit-start-here"],
+          ["Components", "Reusable editor, terminal, search, and navigation surfaces.", "#brand-kit-interface-components"],
+          ["Deploy", "Wrangler deployment actions for brand.find.how.", "#deploy"]
+        ]
+      },
+      {
+        heading: "Assets",
+        items: [
+          ["Identity", "Core marks, tokens, type, and platform variants.", "#brand-kit-identity-system"],
+          ["Launch assets", "Open Graph, X, LinkedIn, GitHub, docs, and launch templates.", "#brand-kit-launch-assets"],
+          ["Product proof", "Diagrams, motion, loading states, and runtime feedback.", "#brand-kit-product-proof"]
+        ]
+      },
+      {
+        heading: "Pioneer",
+        items: [
+          ["Framework", "Build serious TypeScript applications for the edge.", "https://find.how#framework"],
+          ["Compiler", "Verify dependency graphs and generate route kernels.", "https://find.how#compiler"],
+          ["Desktop", "Local HTTPS, .test DNS, proxying, and app controls.", "https://find.how#desktop"]
+        ]
+      }
+    ]
+  },
+  framework: {
+    title: "Framework",
+    columns: [
+      {
+        heading: "Developer surfaces",
+        items: [
+          ["Route editor", "Typed Monaco examples for generated Pioneer routes.", "#component-editor"],
+          ["Terminal", "Wrangler feedback, compile output, and smoke-test logs.", "#component-terminal"],
+          ["Edge CLI", "Artisan-style command sessions through Durable Objects.", "#component-edge-artisan"]
+        ]
+      },
+      {
+        heading: "Runtime proof",
+        items: [
+          ["Routing", "HTTP entry points from expressive route definitions.", "https://find.how#framework"],
+          ["D1 and queues", "Infrastructure inferred from business logic calls.", "#brand-kit-product-proof"],
+          ["Local loop", "Generated app feedback before production deploys.", "#component-demo"]
+        ]
+      },
+      {
+        heading: "Docs",
+        items: [
+          ["Documentation", "Pioneer guides, API notes, and examples.", "https://find.how/docs"],
+          ["GitHub", "Source code and issue tracking.", "https://github.com/find-how/pioneer"],
+          ["Search", "Open the command palette for docs and assets.", "#resources"]
+        ]
+      }
+    ]
+  },
+  resources: {
+    title: "Resources",
+    columns: [
+      {
+        heading: "Brand kit",
+        items: [
+          ["Asset library", "Generated manifest and downloadable source assets.", "#resources"],
+          ["Interface components", "Applied UI rules for product and docs surfaces.", "#brand-kit-interface-components"],
+          ["Color tokens", "Pioneer CSS and JSON color tokens.", "#brand-kit-identity-system"],
+          ["Deploy buttons", "One-click Pioneer deployment button artwork.", "#brand-kit-interface-components"]
+        ]
+      },
+      {
+        heading: "Launch",
+        items: [
+          ["Landing hero", "Business-logic-to-edge artwork and copy.", "/assets/brand-kit/assets/landing/landing-page-hero.svg"],
+          ["Pitch deck", "Presentation theme and launch framing.", "/assets/brand-kit/assets/pitch-deck/pitch-deck-theme.pptx"],
+          ["Launchpad", "Cloudflare Workers one-pager.", "/assets/brand-kit/assets/launchpad/cloudflare-workers-launchpad-one-pager.md"]
+        ]
+      },
+      {
+        heading: "External",
+        items: [
+          ["find.how", "Main Pioneer product site.", "https://find.how"],
+          ["Docs", "Framework and platform documentation.", "https://find.how/docs"],
+          ["GitHub", "Pioneer organization repositories.", "https://github.com/find-how"]
         ]
       }
     ]
@@ -833,6 +927,183 @@ function initDocsSearch() {
   renderResults("");
 }
 
+function initSiteNavigation() {
+  const header = document.querySelector("#siteHeader");
+  const flyout = document.querySelector("#siteFlyout");
+  const triggers = Array.from(document.querySelectorAll("[data-site-flyout]"));
+  const drawer = document.querySelector("#siteMobileDrawer");
+  const openButton = document.querySelector("#openSiteMenu");
+  const tabs = drawer?.querySelector(".site-mobile-tabs");
+  const content = drawer?.querySelector(".site-mobile-content");
+  if (!header || !flyout || !drawer || !openButton || !tabs || !content || !triggers.length) return;
+
+  let activeKind = "platform";
+  let closeTimer = 0;
+
+  function clearCloseTimer() {
+    window.clearTimeout(closeTimer);
+  }
+
+  function setTriggerState(kind = null) {
+    triggers.forEach((trigger) => {
+      trigger.setAttribute("aria-expanded", String(trigger.dataset.siteFlyout === kind));
+    });
+  }
+
+  function renderFlyout(kind) {
+    const data = siteNavData[kind];
+    if (!data) return;
+
+    const grid = document.createElement("div");
+    grid.className = "site-flyout-grid";
+
+    data.columns.forEach((column) => {
+      const columnNode = document.createElement("section");
+      columnNode.className = "site-flyout-column";
+
+      const heading = document.createElement("h3");
+      heading.textContent = column.heading;
+      columnNode.append(heading);
+
+      column.items.forEach(([title, detail, href]) => {
+        const link = document.createElement("a");
+        link.href = href;
+        link.className = "site-flyout-item";
+
+        const label = document.createElement("strong");
+        label.textContent = title;
+        const text = document.createElement("span");
+        text.textContent = detail;
+        link.append(label, text);
+        link.addEventListener("click", closeFlyout);
+        columnNode.append(link);
+      });
+
+      grid.append(columnNode);
+    });
+
+    flyout.replaceChildren(grid);
+    flyout.hidden = false;
+    setTriggerState(kind);
+  }
+
+  function openFlyout(kind) {
+    clearCloseTimer();
+    activeKind = kind;
+    renderFlyout(kind);
+  }
+
+  function closeFlyout() {
+    flyout.hidden = true;
+    flyout.replaceChildren();
+    setTriggerState(null);
+  }
+
+  function scheduleCloseFlyout() {
+    clearCloseTimer();
+    closeTimer = window.setTimeout(() => {
+      if (!header.matches(":hover") && !flyout.matches(":hover")) closeFlyout();
+    }, 160);
+  }
+
+  function renderMobileContent() {
+    const data = siteNavData[activeKind];
+    if (!data) return;
+
+    tabs.replaceChildren(
+      ...Object.entries(siteNavData).map(([key, value]) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = value.title;
+        button.setAttribute("aria-selected", String(key === activeKind));
+        button.addEventListener("click", () => {
+          activeKind = key;
+          renderMobileContent();
+        });
+        return button;
+      })
+    );
+
+    const groups = data.columns.map((column) => {
+      const group = document.createElement("section");
+      group.className = "site-mobile-group";
+
+      const heading = document.createElement("h3");
+      heading.textContent = column.heading;
+      group.append(heading);
+
+      column.items.forEach(([title, detail, href]) => {
+        const link = document.createElement("a");
+        link.href = href;
+        link.className = "site-mobile-item";
+
+        const label = document.createElement("strong");
+        label.textContent = title;
+        const text = document.createElement("span");
+        text.textContent = detail;
+        link.append(label, text);
+        link.addEventListener("click", closeSiteMenu);
+        group.append(link);
+      });
+
+      return group;
+    });
+
+    content.replaceChildren(...groups);
+  }
+
+  function openSiteMenu() {
+    renderMobileContent();
+    drawer.hidden = false;
+    drawer.setAttribute("aria-hidden", "false");
+    openButton.setAttribute("aria-expanded", "true");
+    document.body.classList.add("site-nav-open");
+  }
+
+  function closeSiteMenu() {
+    drawer.hidden = true;
+    drawer.setAttribute("aria-hidden", "true");
+    openButton.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("site-nav-open");
+  }
+
+  triggers.forEach((trigger) => {
+    const kind = trigger.dataset.siteFlyout;
+    trigger.addEventListener("mouseenter", () => openFlyout(kind));
+    trigger.addEventListener("focus", () => openFlyout(kind));
+    trigger.addEventListener("click", (event) => {
+      event.stopPropagation();
+      if (!flyout.hidden && activeKind === kind) {
+        closeFlyout();
+      } else {
+        openFlyout(kind);
+      }
+    });
+  });
+
+  flyout.addEventListener("mouseenter", clearCloseTimer);
+  flyout.addEventListener("mouseleave", scheduleCloseFlyout);
+  header.addEventListener("mouseleave", scheduleCloseFlyout);
+  openButton.addEventListener("click", openSiteMenu);
+
+  drawer.querySelectorAll("[data-close-site-menu]").forEach((control) => {
+    control.addEventListener("click", closeSiteMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!header.contains(event.target)) closeFlyout();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeFlyout();
+      closeSiteMenu();
+    }
+  });
+
+  window.addEventListener("scroll", closeFlyout, { passive: true });
+}
+
 function renderFlyout(kind) {
   const flyout = document.querySelector("#findhowFlyout");
   const data = flyoutData[kind];
@@ -875,7 +1146,7 @@ function initNavigationDemo() {
   const content = drawer?.querySelector(".mobile-nav-content");
   if (!demo || !flyout || !drawer || !tabs || !content) return;
 
-  let activeMobileTab = "products";
+  let activeMobileTab = "platform";
 
   demo.querySelectorAll("[data-flyout]").forEach((button) => {
     button.addEventListener("mouseenter", () => renderFlyout(button.dataset.flyout));
@@ -946,5 +1217,6 @@ function initNavigationDemo() {
 initSnippetSurfaces();
 initMonacoEditor();
 initTerminals();
+initSiteNavigation();
 initDocsSearch();
 initNavigationDemo();
