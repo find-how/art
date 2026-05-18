@@ -416,6 +416,11 @@ async function build() {
     await writeFile(path.join(assetsDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
     await writeFile(path.join(distDir, "brand.json"), `${JSON.stringify(brandConfig, null, 2)}\n`);
 
+    if (process.env.PLUS_COMPONENTS_BUILD === "true") {
+      const { buildPlus } = await import("./build-plus.mjs");
+      await buildPlus();
+    }
+
     console.log(`Built ${manifest.counts.assets} assets into ${path.relative(root, distDir)}`);
   } finally {
     await releaseLock();

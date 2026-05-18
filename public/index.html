@@ -28,6 +28,7 @@
           <button type="button" data-site-flyout="resources" aria-expanded="false">Resources</button>
         </nav>
         <div class="site-top-actions">
+          <a id="plusDevLink" href="/plus/" hidden>Plus UI</a>
           <a href="https://find.how/docs">Docs</a>
           <a href="https://github.com/find-how/pioneer" rel="noreferrer">GitHub</a>
           <button class="site-search-button" type="button" data-open-search>
@@ -77,98 +78,15 @@
         </section>
       </section>
 
-      <section class="section-band brand-source" id="brand">
+      <section class="section-band brand-kit-system" id="brand-kit">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Source of truth</p>
-            <h2>Brand system</h2>
+            <p class="eyebrow">Brand kit</p>
+            <h2>Organized by use</h2>
           </div>
-          <p class="section-note">The demo is the public story: business logic becomes a running Cloudflare edge app.</p>
+          <p class="section-note">Each section is driven by brand config and each reusable item exposes a preview first, then the code or source file behind it.</p>
         </div>
-        <div class="brand-source-grid">
-          <article class="source-panel source-panel-primary">
-            <div>
-              <p class="eyebrow">Market Wedge</p>
-              <h3 id="sourceHeadline">Write business logic. Pioneer compiles the infrastructure.</h3>
-              <p id="sourceSentence">Pioneer turns application business logic into production-ready Cloudflare edge infrastructure.</p>
-            </div>
-            <div class="story-steps" aria-label="Pioneer story steps">
-              <span>Ask AI</span>
-              <span>Generate route</span>
-              <span>Infer bindings</span>
-              <span>Run locally</span>
-            </div>
-          </article>
-
-          <article class="source-panel">
-            <h3>Canonical messaging</h3>
-            <div class="message-list" id="positioningGrid"></div>
-          </article>
-
-          <article class="source-panel code-source">
-            <div class="code-source-header">
-              <div>
-                <h3>Canonical checkout route</h3>
-                <p>One small surface that shows Worker, D1, Cache, Queue, auth, logs, and the 201 response.</p>
-              </div>
-              <span>app/routes/web.ts</span>
-            </div>
-            <pre class="branded-code"><code id="canonicalSnippet"></code></pre>
-          </article>
-
-          <article class="source-panel">
-            <h3>Primary source files</h3>
-            <div class="source-link-list" id="brandSourceLinks"></div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-band muted experience-system" id="experience">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Experience system</p>
-            <h2>Principles that make the kit usable</h2>
-          </div>
-          <p class="section-note">Pioneer UI should signal what can happen, show proof quickly, and respond to every action with stateful feedback.</p>
-        </div>
-        <div class="principles-grid" id="experiencePrinciples"></div>
-        <div class="experience-state-grid" aria-label="Pioneer interaction and semantic color examples">
-          <article class="state-panel">
-            <div>
-              <p class="eyebrow">Affordance</p>
-              <h3>Controls expose state</h3>
-            </div>
-            <div class="state-button-row" aria-label="Button state examples">
-              <button class="state-button" type="button">Default</button>
-              <button class="state-button is-hovered" type="button">Hover</button>
-              <button class="state-button is-pressed" type="button">Pressed</button>
-              <button class="state-button" type="button" disabled>Disabled</button>
-            </div>
-          </article>
-          <article class="state-panel">
-            <div>
-              <p class="eyebrow">Semantic color</p>
-              <h3>Color carries meaning</h3>
-            </div>
-            <div class="semantic-chip-row" aria-label="Semantic color examples">
-              <span class="semantic-chip success">Deploy ready</span>
-              <span class="semantic-chip info">201 response</span>
-              <span class="semantic-chip warning">Binding missing</span>
-              <span class="semantic-chip danger">Check failed</span>
-            </div>
-          </article>
-          <article class="state-panel dark">
-            <div>
-              <p class="eyebrow">Dark mode</p>
-              <h3>Depth comes from surfaces</h3>
-            </div>
-            <div class="dark-surface-demo" aria-label="Dark mode surface depth example">
-              <span>Worker</span>
-              <strong>D1, Cache, Queue inferred</strong>
-              <small>wrangler dev ready on 127.0.0.1:8789</small>
-            </div>
-          </article>
-        </div>
+        <div id="brandKitSections"></div>
       </section>
 
       <section class="section-band muted component-index" id="components">
@@ -203,6 +121,10 @@
           <a href="#component-navigation" class="component-link-card">
             <span>Navigation</span>
             <strong>find.how desktop flyouts and mobile drawer.</strong>
+          </a>
+          <a id="plusComponentCard" href="/plus/" class="component-link-card plus-component-card" hidden>
+            <span>Private Plus UI</span>
+            <strong>Application and marketing component browser.</strong>
           </a>
         </div>
       </section>
@@ -488,94 +410,6 @@
         </div>
       </section>
 
-      <section class="section-band" id="logos">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Core Files</p>
-            <h2>Logos</h2>
-          </div>
-          <p id="assetSummary" class="section-note"></p>
-        </div>
-        <div class="logo-grid" id="logoGrid"></div>
-      </section>
-
-      <section class="section-band muted" id="social">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Distribution</p>
-            <h2>Social Cards</h2>
-          </div>
-          <p class="section-note">Editable SVG templates plus generated PNG companions for Open Graph, X, LinkedIn, GitHub, docs, and launch posts.</p>
-        </div>
-        <div class="showcase-grid social-grid" id="socialGrid"></div>
-      </section>
-
-      <section class="section-band" id="patterns">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Product Story</p>
-            <h2>Patterns</h2>
-          </div>
-          <p class="section-note">Reusable visuals from the Demo: editor, prompt cards, terminal playback, and Cloudflare feedback panels.</p>
-        </div>
-        <div class="showcase-grid pattern-grid" id="patternGrid"></div>
-      </section>
-
-      <section class="section-band muted" id="diagrams">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Docs</p>
-            <h2>Diagrams</h2>
-          </div>
-          <p class="section-note">Documentation-grade diagrams for the compiler pipeline, local feedback loop, and Cloudflare edge stack.</p>
-        </div>
-        <div class="showcase-grid diagram-grid" id="diagramGrid"></div>
-      </section>
-
-      <section class="section-band" id="loading">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">AI States</p>
-            <h2>Loading Assets</h2>
-          </div>
-          <p class="section-note">Standalone animated SVGs for thinking, routing, and background work.</p>
-        </div>
-        <div class="loader-grid" id="loaderGrid"></div>
-      </section>
-
-      <section class="section-band muted" id="motion">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Motion System</p>
-            <h2>Animated product assets</h2>
-          </div>
-          <p class="section-note">Self-contained SVG loops for code generation, terminal streaming, service binding, and route tracing.</p>
-        </div>
-        <div class="showcase-grid motion-grid" id="motionGrid"></div>
-      </section>
-
-      <section class="section-band" id="buttons">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Pioneer Deploy</p>
-            <h2>One-click button assets</h2>
-          </div>
-          <p class="section-note">Demo-derived button artwork, CSS, and snippets for the Pioneer deploy entry point.</p>
-        </div>
-        <div class="showcase-grid button-grid" id="buttonGrid"></div>
-      </section>
-
-      <section class="section-band muted" id="icons">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Platform Sets</p>
-            <h2>Icons</h2>
-          </div>
-          <p class="section-note">Color, black, and white variants are available for web, desktop, iOS, Android, and Windows packaging.</p>
-        </div>
-        <div class="icon-set-grid" id="iconSetGrid"></div>
-      </section>
-
       <section class="section-band split" id="deploy">
         <div>
           <p class="eyebrow">Deployment</p>
@@ -602,14 +436,6 @@
         <div class="resource-grid" id="resourceGrid"></div>
         <div class="asset-grid" id="assetGrid"></div>
       </section>
-
-      <section class="section-band color-system" id="color-system">
-        <div>
-          <p class="eyebrow">Color system</p>
-          <h2>Tokens</h2>
-        </div>
-        <div class="swatch-grid" id="swatchGrid"></div>
-      </section>
     </main>
 
     <footer class="site-footer">
@@ -628,9 +454,9 @@
         <nav class="site-footer-nav" aria-label="Footer navigation">
           <div>
             <h3>Platform</h3>
-            <a href="#brand">Brand system</a>
-            <a href="#experience">Experience principles</a>
-            <a href="#components">Components</a>
+            <a href="#brand-kit">Brand kit</a>
+            <a href="#brand-kit-start-here">Start here</a>
+            <a href="#brand-kit-interface-components">Components</a>
             <a href="#deploy">Deploy</a>
           </div>
           <div>
@@ -643,13 +469,13 @@
             <h3>Resources</h3>
             <a href="https://find.how/docs">Documentation</a>
             <a href="#resources">Asset manifest</a>
-            <a href="#social">Social cards</a>
+            <a href="#brand-kit-launch-assets">Launch assets</a>
           </div>
           <div>
             <h3>Brand</h3>
-            <a href="#logos">Logos</a>
-            <a href="#patterns">Patterns</a>
-            <a href="#motion">Motion</a>
+            <a href="#brand-kit-identity-system">Identity</a>
+            <a href="#brand-kit-product-proof">Product proof</a>
+            <a href="#brand-kit-asset-library">Library</a>
           </div>
         </nav>
       </div>

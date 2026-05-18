@@ -81,6 +81,16 @@ curl -s https://brand.find.how/assets/manifest.json
 
 The interactive Edge Artisan console posts to `/__artisan`. It works with only the Durable Object binding, then uses fallback Durable Object storage where optional Cloudflare primitives are not bound.
 
+## Private Plus Components
+
+The `/plus/` component browser is intentionally private because it contains Pioneer-branded derivatives of licensed Tailwind Plus components.
+
+- Normal `npm run build` excludes the private Plus catalog.
+- `npm run dev` and `npm run preview` generate a local private catalog in `dist/plus` and expose `/plus/` for local review.
+- Production Plus deploys should use `npm run deploy:plus`, which builds the private catalog and injects `PLUS_COMPONENTS_ENABLED:true` as a Worker var.
+- Protect `https://brand.find.how/plus/*` and `https://brand.find.how/api/plus/*` with Cloudflare Access.
+- Optionally set `PLUS_ACCESS_EMAIL_DOMAIN=find.how` so the Worker rejects Access-authenticated users outside the allowed domain.
+
 ## Optional Edge Artisan Bindings
 
 The production demo can communicate with more Cloudflare primitives when they are added to `wrangler.toml`:

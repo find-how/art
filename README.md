@@ -77,6 +77,18 @@ The brand portal now includes a real `/__artisan` Worker endpoint backed by the 
 
 The runtime uses Durable Object storage by default and can attach optional Cloudflare bindings for `EDGE_ARTISAN_DB` (D1), `EDGE_ARTISAN_KV` (KV), `EDGE_ARTISAN_REPORTS` (R2), and `EDGE_ARTISAN_QUEUE` (Queues).
 
+## Private Tailwind Plus Component Browser
+
+Licensed Tailwind Plus downloads can be imported into a private, gitignored source directory and rendered as Pioneer-branded component previews under `/plus/`.
+
+```bash
+npm run plus:import -- --dry-run
+npm run plus:import
+npm run dev
+```
+
+The importer reads `~/Downloads/marketinguiv4` and `~/Downloads/appuiv4` by default. Local dev builds and exposes `/plus/` automatically, and the main brand kit shows a Plus UI link when the private catalog is reachable. Generated Plus output is not part of the normal public build. Production access to `/plus/*` and `/api/plus/catalog.json` must stay behind Cloudflare Access; `npm run deploy:plus` injects the required `PLUS_COMPONENTS_ENABLED:true` Worker var.
+
 ## Go-To-Market Source Assets
 
 The minimum viable launch kit now lives under `brand-kit/assets/`:

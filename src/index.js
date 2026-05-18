@@ -123,6 +123,63 @@ async function assetJson(env, request, pathname) {
   });
 }
 
+function isEnabled(value) {
+  return ["1", "true", "yes", "on"].includes(String(value || "").toLowerCase());
+}
+
+function hostHeaderName(value) {
+  const host = String(value || "").trim().toLowerCase();
+  if (!host) return "";
+  if (host.startsWith("[") && host.includes("]")) {
+    return host.slice(1, host.indexOf("]"));
+  }
+
+  return host.split(":")[0];
+}
+
+function isLocalHostname(value) {
+  return ["127.0.0.1", "localhost", "::1"].includes(value);
+}
+
+function isLocalRequest(request, url) {
+  return [url.hostname, hostHeaderName(request.headers.get("host"))].some(isLocalHostname);
+}
+
+function plusAccessEmail(request) {
+  return (
+    request.headers.get("cf-access-authenticated-user-email") ||
+    request.headers.get("CF-Access-Authenticated-User-Email") ||
+    ""
+  ).trim();
+}
+
+function canAccessPlus(request, env, url) {
+  if (isLocalRequest(request, url) || isEnabled(env.PLUS_COMPONENTS_DEV_BYPASS)) {
+    return true;
+  }
+
+  if (!isEnabled(env.PLUS_COMPONENTS_ENABLED)) {
+    return false;
+  }
+
+  const email = plusAccessEmail(request);
+  if (!email) {
+    return false;
+  }
+
+  const allowedDomain = String(env.PLUS_ACCESS_EMAIL_DOMAIN || "").trim().toLowerCase();
+  if (!allowedDomain) {
+    return true;
+  }
+
+  return email.toLowerCase().endsWith(`@${allowedDomain.replace(/^@/, "")}`);
+}
+
+async function plusAsset(env, request, pathname) {
+  const assetUrl = new URL(pathname, request.url);
+  return env.ASSETS.fetch(new Request(assetUrl, request));
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -144,8 +201,52 @@ export default {
       return assetJson(env, request, "/assets/manifest.json");
     }
 
+    if (url.pathname === "/api/plus/catalog.json") {
+      if (!canAccessPlus(request, env, url)) {
+        return new Response(null, { status: 404 });
+      }
+
+      const response = await plusAsset(env, request, "/plus/catalog.json");
+      if (!response.ok) {
+        return json({ error: "Private Plus catalog not built." }, { status: 404 });
+      }
+
+      return new Response(response.body, {
+        status: response.status,
+        headers: {
+          "content-type": "application/json; charset=utf-8",
+          "cache-control": "private, no-store",
+          "x-robots-tag": "noindex"
+        }
+      });
+    }
+
     if (url.pathname === "/__artisan" || url.pathname.startsWith("/__artisan/")) {
       return runEdgeArtisan(request, env);
+    }
+
+    if (url.pathname === "/plus") {
+      return Response.redirect(new URL("/plus/", request.url), 302);
+    }
+
+    if (url.pathname.startsWith("/plus/")) {
+      if (!canAccessPlus(request, env, url)) {
+        return new Response(null, { status: 404 });
+      }
+
+      const pathname = url.pathname;
+      const response = await plusAsset(env, request, pathname);
+      if (!response.ok) {
+        return new Response(null, { status: response.status });
+      }
+
+      const headers = new Headers(response.headers);
+      headers.set("cache-control", "private, no-store");
+      headers.set("x-robots-tag", "noindex");
+      return new Response(response.body, {
+        status: response.status,
+        headers
+      });
     }
 
     return env.ASSETS.fetch(request);

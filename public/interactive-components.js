@@ -294,18 +294,18 @@ const siteNavData = {
       {
         heading: "Brand portal",
         items: [
-          ["Brand system", "Positioning, messaging, tokens, and source files.", "#brand"],
-          ["Experience principles", "Affordances, hierarchy, states, motion, and overlays.", "#experience"],
-          ["Components", "Reusable editor, terminal, search, and navigation surfaces.", "#components"],
+          ["Brand kit", "Config-driven sections with preview and code tabs.", "#brand-kit"],
+          ["Start here", "Positioning, messaging, source files, and canonical code.", "#brand-kit-start-here"],
+          ["Components", "Reusable editor, terminal, search, and navigation surfaces.", "#brand-kit-interface-components"],
           ["Deploy", "Wrangler deployment actions for brand.find.how.", "#deploy"]
         ]
       },
       {
         heading: "Assets",
         items: [
-          ["Logos", "Core marks, wordmarks, app icons, and platform variants.", "#logos"],
-          ["Social cards", "Open Graph, X, LinkedIn, GitHub, and docs templates.", "#social"],
-          ["Motion", "Animated product loops and AI loading states.", "#motion"]
+          ["Identity", "Core marks, tokens, type, and platform variants.", "#brand-kit-identity-system"],
+          ["Launch assets", "Open Graph, X, LinkedIn, GitHub, docs, and launch templates.", "#brand-kit-launch-assets"],
+          ["Product proof", "Diagrams, motion, loading states, and runtime feedback.", "#brand-kit-product-proof"]
         ]
       },
       {
@@ -333,8 +333,8 @@ const siteNavData = {
         heading: "Runtime proof",
         items: [
           ["Routing", "HTTP entry points from expressive route definitions.", "https://find.how#framework"],
-          ["D1 and queues", "Infrastructure inferred from business logic calls.", "#patterns"],
-          ["Local loop", "Generated app feedback before production deploys.", "#diagrams"]
+          ["D1 and queues", "Infrastructure inferred from business logic calls.", "#brand-kit-product-proof"],
+          ["Local loop", "Generated app feedback before production deploys.", "#component-demo"]
         ]
       },
       {
@@ -354,9 +354,9 @@ const siteNavData = {
         heading: "Brand kit",
         items: [
           ["Asset library", "Generated manifest and downloadable source assets.", "#resources"],
-          ["Experience principles", "Applied UI rules for product and docs surfaces.", "#experience"],
-          ["Color tokens", "Pioneer CSS and JSON color tokens.", "#color-system"],
-          ["Deploy buttons", "One-click Pioneer deployment button artwork.", "#buttons"]
+          ["Interface components", "Applied UI rules for product and docs surfaces.", "#brand-kit-interface-components"],
+          ["Color tokens", "Pioneer CSS and JSON color tokens.", "#brand-kit-identity-system"],
+          ["Deploy buttons", "One-click Pioneer deployment button artwork.", "#brand-kit-interface-components"]
         ]
       },
       {

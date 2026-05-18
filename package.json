@@ -8,10 +8,14 @@
     "build": "node scripts/build.mjs",
     "check": "npm run build && node --check src/index.js && node --check public/app.js && node --check public/interactive-components.js",
     "deck": "node scripts/generate-pitch-deck.mjs",
-    "dev": "WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler dev",
+    "dev": "PLUS_COMPONENTS_BUILD=true WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler dev --var PLUS_COMPONENTS_ENABLED:true --var PLUS_COMPONENTS_DEV_BYPASS:true",
     "deploy": "WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler deploy",
     "deploy:dry-run": "WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler deploy --dry-run",
-    "preview": "WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler dev --local"
+    "deploy:plus": "PLUS_COMPONENTS_BUILD=true WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler deploy --var PLUS_COMPONENTS_ENABLED:true",
+    "plus:build": "PLUS_COMPONENTS_BUILD=true npm run build",
+    "plus:dev": "PLUS_COMPONENTS_BUILD=true WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler dev --local --var PLUS_COMPONENTS_ENABLED:true --var PLUS_COMPONENTS_DEV_BYPASS:true",
+    "plus:import": "node scripts/import-plus.mjs",
+    "preview": "PLUS_COMPONENTS_BUILD=true WRANGLER_LOG_PATH=.wrangler/logs WRANGLER_SEND_METRICS=false wrangler dev --local --var PLUS_COMPONENTS_ENABLED:true --var PLUS_COMPONENTS_DEV_BYPASS:true"
   },
   "devDependencies": {
     "sharp": "^0.34.5",
