@@ -14,13 +14,77 @@ export const brandConfig = {
     ai: "AI writes code. Pioneer makes it deployable."
   },
   colors: [
-    { name: "Pioneer Forest", hex: "#2D7A3E", role: "Primary anchor" },
-    { name: "Pioneer Leaf", hex: "#4A9D5F", role: "Primary mid tone" },
-    { name: "Pioneer Sprout", hex: "#7CB342", role: "Primary highlight" },
-    { name: "Ink", hex: "#161A17", role: "Text and monochrome mark" },
-    { name: "Mist", hex: "#F4F7EF", role: "Page background" },
-    { name: "Field Gold", hex: "#D9A441", role: "Secondary accent" },
-    { name: "Slate Blue", hex: "#456275", role: "Utility accent" }
+    { name: "Pioneer Pine", hex: "#174C2A", role: "Deep action, dark-mode depth, and serious surfaces" },
+    { name: "Pioneer Forest", hex: "#2D7A3E", role: "Primary action and selected state" },
+    { name: "Pioneer Leaf", hex: "#4A9D5F", role: "Primary mid tone and hover state" },
+    { name: "Pioneer Sprout", hex: "#7CB342", role: "Highlights, live states, and motion accents" },
+    { name: "Pioneer Soft", hex: "#A5DBB7", role: "Dark-mode text, focus accents, and soft borders" },
+    { name: "Pioneer Mint", hex: "#DDF4E4", role: "Soft selected backgrounds and success surfaces" },
+    { name: "Ink", hex: "#161A17", role: "Text, monochrome mark, and command surfaces" },
+    { name: "Mist", hex: "#F4F7EF", role: "Warm page background and calm panels" },
+    { name: "Field Gold", hex: "#D9A441", role: "Cloudflare, deploy, and platform feedback" },
+    { name: "Focus Sky", hex: "#0EA5E9", role: "Focus rings, response feedback, logs, and observability" },
+    { name: "Warning Amber", hex: "#F59E0B", role: "Warnings and recoverable configuration issues" },
+    { name: "Danger Red", hex: "#DC2626", role: "Errors, destructive actions, and failed checks" },
+    { name: "Slate Blue", hex: "#456275", role: "Utility accent for secondary diagrams and metadata" }
+  ],
+  experiencePrinciples: [
+    {
+      title: "Signal affordance before explanation",
+      principle:
+        "Controls should read as controls through shape, state, cursor, and active treatment before any helper text is needed.",
+      application:
+        "Use pressed segments for filters, visible focus rings, disabled opacity, and clear hover treatment on copy, download, and deploy actions."
+    },
+    {
+      title: "Make the route the visual hero",
+      principle:
+        "Pioneer sells the path from business logic to running app, so code and terminal proof should outrank decorative brand moments.",
+      application:
+        "Put the route, terminal result, and generated bindings near the top; keep price, metadata, and labels secondary unless they change the decision."
+    },
+    {
+      title: "Use color semantically",
+      principle:
+        "Green is Pioneer action, gold is platform/deploy context, blue is response/observability, amber is warning, and red is failure.",
+      application:
+        "Do not use semantic colors as decoration. A colored chip, border, or line should tell the user something changed or needs attention."
+    },
+    {
+      title: "Answer every interaction",
+      principle:
+        "Every click, copy, run, search, deploy, and form action needs an immediate response.",
+      application:
+        "Provide default, hover, pressed, focus, disabled, loading, success, warning, and error states for production UI surfaces."
+    },
+    {
+      title: "Keep density purposeful",
+      principle:
+        "Pioneer tools are work surfaces, not marketing posters. The layout should stay quiet, scannable, and repeatable.",
+      application:
+        "Use compact headings in panels, 4px spacing steps, fixed control dimensions, and dense grids for asset libraries and dashboards."
+    },
+    {
+      title: "Create depth with restraint",
+      principle:
+        "Light mode can use soft shadows, while dark mode should rely on surface contrast and borders.",
+      application:
+        "Cards use small shadows or none; popovers and command palettes get stronger depth because they sit above other content."
+    },
+    {
+      title: "Protect text over media",
+      principle:
+        "Screenshots, diagrams, and hero artwork should never compete with the copy that explains the action.",
+      application:
+        "Use gradients or progressive blur overlays when text sits on imagery, and keep inspectable product screenshots clear."
+    },
+    {
+      title: "Prefer real product evidence",
+      principle:
+        "The brand is strongest when it shows generated TypeScript, inferred services, Wrangler feedback, and a passing response.",
+      application:
+        "Use actual code, terminal lines, diagrams, and UI components instead of generic abstract shapes."
+    }
   ],
   deployActions: [
     {
@@ -65,6 +129,11 @@ export const brandConfig = {
       title: "Interactive Components",
       href: "/assets/brand-kit/ui/components/README.md",
       detail: "Reusable Monaco editor, xterm terminal, docs search, and find.how navigation components."
+    },
+    {
+      title: "Experience Principles",
+      href: "/assets/brand-kit/ui/experience-principles.md",
+      detail: "Applied UI rules for affordances, hierarchy, spacing, states, motion, overlays, and dark mode."
     },
     {
       title: "Edge Artisan Console",

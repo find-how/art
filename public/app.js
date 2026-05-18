@@ -14,6 +14,7 @@ const elements = {
   positioningGrid: document.querySelector("#positioningGrid"),
   brandSourceLinks: document.querySelector("#brandSourceLinks"),
   canonicalSnippet: document.querySelector("#canonicalSnippet"),
+  experiencePrinciples: document.querySelector("#experiencePrinciples"),
   assetSummary: document.querySelector("#assetSummary"),
   visibleCount: document.querySelector("#visibleCount"),
   logoGrid: document.querySelector("#logoGrid"),
@@ -67,6 +68,7 @@ const primarySourceTitles = new Set([
   "Pioneer Brand Kit",
   "Messaging Kit",
   "Interactive Components",
+  "Experience Principles",
   "Edge Artisan Console",
   "Canonical Checkout Snippet",
   "Landing Hero",
@@ -258,6 +260,39 @@ function renderBrandSource() {
 
   elements.positioningGrid.replaceChildren(...messageRows);
   elements.brandSourceLinks.replaceChildren(...sourceLinks);
+}
+
+function renderExperiencePrinciples() {
+  if (!elements.experiencePrinciples) return;
+
+  const principles = state.brand?.experiencePrinciples || [];
+  const nodes = principles.map((principle, index) => {
+    const article = document.createElement("article");
+    article.className = "principle-card";
+
+    const marker = document.createElement("span");
+    marker.className = "principle-index";
+    marker.textContent = String(index + 1).padStart(2, "0");
+
+    const body = document.createElement("div");
+    body.className = "principle-body";
+
+    const title = document.createElement("h3");
+    title.textContent = principle.title;
+
+    const description = document.createElement("p");
+    description.textContent = principle.principle;
+
+    const application = document.createElement("p");
+    application.className = "principle-application";
+    application.textContent = principle.application;
+
+    body.append(title, description, application);
+    article.append(marker, body);
+    return article;
+  });
+
+  elements.experiencePrinciples.replaceChildren(...nodes);
 }
 
 function filterOptions(key, order) {
@@ -537,6 +572,7 @@ async function boot() {
 
   renderDeployActions();
   renderBrandSource();
+  renderExperiencePrinciples();
   renderResources();
   renderSwatches();
   renderAllAssetViews();

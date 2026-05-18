@@ -68,6 +68,7 @@ These assets adapt the strongest surfaces from `~/Code/Demo`: AI prompt cards, M
 | `motion/` | Animated SVG loops for code generation, terminal streaming, service binding pulses, and route tracing. |
 | `buttons/` | Demo-derived Deploy to Pioneer button artwork, CSS, and HTML snippets for one-click deployment entry points. |
 | `brand-kit/` | Source-of-truth positioning, messaging, tokens, UI rules, canonical code snippets, demo scripts, and launch assets. |
+| `brand-kit/ui/experience-principles.md` | Applied UI rules for affordances, hierarchy, semantic color, states, motion, overlays, and dark mode. |
 | `brand-kit/ui/components/` | Reusable interactive webview snippets for Monaco, xterm, Edge Artisan, docs search, and find.how navigation. |
 
 ## Edge Artisan Runtime

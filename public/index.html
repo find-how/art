@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pioneer Brand Kit</title>
     <meta name="description" content="Pioneer logos, brand assets, app icons, platform resources, and deployment links.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons-color/32x32.png">
     <link rel="apple-touch-icon" href="/assets/icons-color/icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
@@ -13,25 +16,34 @@
     <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
   </head>
   <body>
-    <header class="topbar">
-      <a class="brand-link" href="/" aria-label="Pioneer Brand Kit home">
-        <img src="/assets/pioneer-logo.svg" alt="" class="brand-mark">
-        <span>Pioneer</span>
-      </a>
-      <nav class="topnav" aria-label="Brand sections">
-        <a href="#brand">Brand</a>
-        <a href="#components">Components</a>
-        <a href="#logos">Logos</a>
-        <a href="#social">Social</a>
-        <a href="#patterns">Patterns</a>
-        <a href="#diagrams">Diagrams</a>
-        <a href="#loading">Loading</a>
-        <a href="#motion">Motion</a>
-        <a href="#buttons">Buttons</a>
-        <a href="#icons">Icons</a>
-        <a href="#deploy">Deploy</a>
-        <a href="#resources">Resources</a>
-      </nav>
+    <header class="site-header" id="siteHeader">
+      <div class="site-nav-shell">
+        <a class="site-logo" href="https://find.how" aria-label="Pioneer home">
+          <img src="/assets/pioneer-logo.svg" alt="">
+          <span>Pioneer</span>
+        </a>
+        <nav class="site-primary-nav" aria-label="Primary navigation">
+          <button type="button" data-site-flyout="platform" aria-expanded="false">Platform</button>
+          <button type="button" data-site-flyout="framework" aria-expanded="false">Framework</button>
+          <button type="button" data-site-flyout="resources" aria-expanded="false">Resources</button>
+        </nav>
+        <div class="site-top-actions">
+          <a href="https://find.how/docs">Docs</a>
+          <a href="https://github.com/find-how/pioneer" rel="noreferrer">GitHub</a>
+          <button class="site-search-button" type="button" data-open-search>
+            <span>Search docs</span>
+            <kbd>⌘K</kbd>
+          </button>
+        </div>
+        <button class="site-menu-button" id="openSiteMenu" type="button" aria-label="Open navigation menu" aria-expanded="false">
+          <span class="site-menu-label">Menu</span>
+          <span class="site-menu-icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+      <div class="site-flyout" id="siteFlyout" hidden></div>
     </header>
 
     <main>
@@ -68,10 +80,10 @@
       <section class="section-band brand-source" id="brand">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Source Of Truth</p>
-            <h2>Brand System</h2>
+            <p class="eyebrow">Source of truth</p>
+            <h2>Brand system</h2>
           </div>
-          <p class="section-note">The Demo is the public story: business logic becomes a running Cloudflare edge app.</p>
+          <p class="section-note">The demo is the public story: business logic becomes a running Cloudflare edge app.</p>
         </div>
         <div class="brand-source-grid">
           <article class="source-panel source-panel-primary">
@@ -89,14 +101,14 @@
           </article>
 
           <article class="source-panel">
-            <h3>Canonical Messaging</h3>
+            <h3>Canonical messaging</h3>
             <div class="message-list" id="positioningGrid"></div>
           </article>
 
           <article class="source-panel code-source">
             <div class="code-source-header">
               <div>
-                <h3>Canonical Checkout Route</h3>
+                <h3>Canonical checkout route</h3>
                 <p>One small surface that shows Worker, D1, Cache, Queue, auth, logs, and the 201 response.</p>
               </div>
               <span>app/routes/web.ts</span>
@@ -105,8 +117,56 @@
           </article>
 
           <article class="source-panel">
-            <h3>Primary Source Files</h3>
+            <h3>Primary source files</h3>
             <div class="source-link-list" id="brandSourceLinks"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-band muted experience-system" id="experience">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Experience system</p>
+            <h2>Principles that make the kit usable</h2>
+          </div>
+          <p class="section-note">Pioneer UI should signal what can happen, show proof quickly, and respond to every action with stateful feedback.</p>
+        </div>
+        <div class="principles-grid" id="experiencePrinciples"></div>
+        <div class="experience-state-grid" aria-label="Pioneer interaction and semantic color examples">
+          <article class="state-panel">
+            <div>
+              <p class="eyebrow">Affordance</p>
+              <h3>Controls expose state</h3>
+            </div>
+            <div class="state-button-row" aria-label="Button state examples">
+              <button class="state-button" type="button">Default</button>
+              <button class="state-button is-hovered" type="button">Hover</button>
+              <button class="state-button is-pressed" type="button">Pressed</button>
+              <button class="state-button" type="button" disabled>Disabled</button>
+            </div>
+          </article>
+          <article class="state-panel">
+            <div>
+              <p class="eyebrow">Semantic color</p>
+              <h3>Color carries meaning</h3>
+            </div>
+            <div class="semantic-chip-row" aria-label="Semantic color examples">
+              <span class="semantic-chip success">Deploy ready</span>
+              <span class="semantic-chip info">201 response</span>
+              <span class="semantic-chip warning">Binding missing</span>
+              <span class="semantic-chip danger">Check failed</span>
+            </div>
+          </article>
+          <article class="state-panel dark">
+            <div>
+              <p class="eyebrow">Dark mode</p>
+              <h3>Depth comes from surfaces</h3>
+            </div>
+            <div class="dark-surface-demo" aria-label="Dark mode surface depth example">
+              <span>Worker</span>
+              <strong>D1, Cache, Queue inferred</strong>
+              <small>wrangler dev ready on 127.0.0.1:8789</small>
+            </div>
           </article>
         </div>
       </section>
@@ -115,7 +175,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Interactive Kit</p>
-            <h2>Reusable Webview Components</h2>
+            <h2>Reusable webview components</h2>
           </div>
           <p class="section-note">Live Pioneer components with copy and download actions for docs, demos, webviews, and launch pages.</p>
         </div>
@@ -151,7 +211,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Browser Demo</p>
-            <h2>Route To Running App</h2>
+            <h2>Route to running app</h2>
           </div>
           <p class="section-note">Edit the route, then run the Pioneer feedback loop. The terminal streams the same story: infer bindings, run Wrangler, smoke-test checkout.</p>
         </div>
@@ -213,7 +273,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Editor Component</p>
-            <h2>Typed Pioneer Monaco Editor</h2>
+            <h2>Typed Pioneer Monaco editor</h2>
           </div>
           <p class="section-note">The Demo editor as a reusable surface: Pioneer types, dark theme, service line highlights, and copy/download actions.</p>
         </div>
@@ -246,7 +306,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Terminal Component</p>
-            <h2>Pioneer xterm Console</h2>
+            <h2>Pioneer xterm console</h2>
           </div>
           <p class="section-note">A reusable terminal for compile, binding inference, migration, Wrangler, and smoke-test feedback.</p>
         </div>
@@ -282,7 +342,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Edge CLI</p>
-            <h2>Artisan On Cloudflare</h2>
+            <h2>Artisan on Cloudflare</h2>
           </div>
           <p class="section-note">An xterm console example where an Artisan command enters a Worker, runs through a Durable Object command driver, and uses Cloudflare edge services like a CLI runtime.</p>
         </div>
@@ -357,7 +417,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Docs Search</p>
-            <h2>find.how Search Bar</h2>
+            <h2>find.how search bar</h2>
           </div>
           <p class="section-note">The docs search pattern: centered trigger, command shortcut, modal search, grouped results, and recent search behavior.</p>
         </div>
@@ -389,7 +449,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Navigation</p>
-            <h2>find.how Flyout Menu</h2>
+            <h2>find.how flyout menu</h2>
           </div>
           <p class="section-note">Desktop flyouts with a mobile tabbed drawer, adapted to Pioneer’s current product story and deploy action.</p>
         </div>
@@ -401,7 +461,7 @@
                 <span>Pioneer</span>
               </a>
               <div class="findhow-nav-links" aria-label="Demo desktop navigation">
-                <button type="button" data-flyout="products">Products</button>
+                <button type="button" data-flyout="platform">Platform</button>
                 <button type="button" data-flyout="framework">Framework</button>
                 <button type="button" data-flyout="resources">Resources</button>
                 <a href="#resources">Docs</a>
@@ -487,7 +547,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Motion System</p>
-            <h2>Animated Product Assets</h2>
+            <h2>Animated product assets</h2>
           </div>
           <p class="section-note">Self-contained SVG loops for code generation, terminal streaming, service binding, and route tracing.</p>
         </div>
@@ -498,7 +558,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Pioneer Deploy</p>
-            <h2>One-Click Button Assets</h2>
+            <h2>One-click button assets</h2>
           </div>
           <p class="section-note">Demo-derived button artwork, CSS, and snippets for the Pioneer deploy entry point.</p>
         </div>
@@ -519,7 +579,7 @@
       <section class="section-band split" id="deploy">
         <div>
           <p class="eyebrow">Deployment</p>
-          <h2>One-Click Buttons</h2>
+          <h2>One-click buttons</h2>
           <p class="section-note">Primary links are centralized in the Worker config and exposed at <code>/api/brand</code>.</p>
         </div>
         <div class="deploy-panel">
@@ -535,7 +595,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Resources</p>
-            <h2>Asset Library</h2>
+            <h2>Asset library</h2>
           </div>
           <p class="section-note" id="visibleCount"></p>
         </div>
@@ -543,14 +603,58 @@
         <div class="asset-grid" id="assetGrid"></div>
       </section>
 
-      <section class="section-band color-system">
+      <section class="section-band color-system" id="color-system">
         <div>
-          <p class="eyebrow">Color System</p>
+          <p class="eyebrow">Color system</p>
           <h2>Tokens</h2>
         </div>
         <div class="swatch-grid" id="swatchGrid"></div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="site-footer-lead">
+          <a class="site-footer-logo" href="https://find.how" aria-label="Pioneer home">
+            <img src="/assets/icons-color/64x64.png" alt="">
+          </a>
+          <p>Pioneer brings productive application architecture to TypeScript and edge-native infrastructure.</p>
+          <div class="site-footer-meta">
+            <span>© 2026 Find How</span>
+            <a href="https://find.how/docs">Docs</a>
+            <a href="https://github.com/find-how/pioneer" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+        <nav class="site-footer-nav" aria-label="Footer navigation">
+          <div>
+            <h3>Platform</h3>
+            <a href="#brand">Brand system</a>
+            <a href="#experience">Experience principles</a>
+            <a href="#components">Components</a>
+            <a href="#deploy">Deploy</a>
+          </div>
+          <div>
+            <h3>Framework</h3>
+            <a href="https://find.how#framework">Routing</a>
+            <a href="https://find.how#compiler">Compiler</a>
+            <a href="https://find.how#edge">Edge runtime</a>
+          </div>
+          <div>
+            <h3>Resources</h3>
+            <a href="https://find.how/docs">Documentation</a>
+            <a href="#resources">Asset manifest</a>
+            <a href="#social">Social cards</a>
+          </div>
+          <div>
+            <h3>Brand</h3>
+            <a href="#logos">Logos</a>
+            <a href="#patterns">Patterns</a>
+            <a href="#motion">Motion</a>
+          </div>
+        </nav>
+      </div>
+      <div class="site-footer-wordmark" aria-hidden="true">Pioneer</div>
+    </footer>
 
     <div class="docs-search-modal" id="docsSearchModal" hidden aria-hidden="true">
       <button class="docs-search-backdrop" type="button" data-close-search aria-label="Close search"></button>
@@ -567,6 +671,28 @@
         <div class="docs-search-footer">
           <span>Search by local index</span>
           <kbd>Esc</kbd>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-mobile-drawer" id="siteMobileDrawer" hidden aria-hidden="true">
+      <button class="site-mobile-backdrop" type="button" data-close-site-menu aria-label="Close navigation menu"></button>
+      <div class="site-mobile-panel" role="dialog" aria-modal="true" aria-label="Pioneer navigation">
+        <div class="site-mobile-head">
+          <a class="site-logo" href="https://find.how" aria-label="Pioneer home">
+            <img src="/assets/pioneer-logo.svg" alt="">
+            <span>Pioneer</span>
+          </a>
+          <button type="button" data-close-site-menu aria-label="Close navigation menu">Close</button>
+        </div>
+        <div class="site-mobile-tabs" role="tablist" aria-label="Navigation categories"></div>
+        <div class="site-mobile-content"></div>
+        <div class="site-mobile-actions">
+          <button class="site-search-button" type="button" data-open-search data-close-site-menu>
+            <span>Search docs</span>
+            <kbd>⌘K</kbd>
+          </button>
+          <a class="site-deploy-link" href="https://pioneer.find.how/deploy?source=brand.find.how" rel="noreferrer">Deploy</a>
         </div>
       </div>
     </div>

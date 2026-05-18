@@ -8,6 +8,8 @@ The central idea is:
 
 The Demo is the clearest expression of the brand. It starts with a business request, generates focused TypeScript code, then shows Pioneer wiring the Worker, D1, Cache, Queue, auth, logs, and local Wrangler feedback around it.
 
+The kit covers both assets and behavior. Logos, colors, and copy are only complete when the UI also signals affordance, hierarchy, state, feedback, and product proof.
+
 ## Brand Foundation
 
 | Field | Value |
@@ -55,10 +57,11 @@ The compiler, TypeGraph, DI rules, and internal verification model are the moat.
 | 6 | Color tokens |
 | 7 | Typography tokens |
 | 8 | Canonical checkout code snippet |
-| 9 | GitHub banner |
-| 10 | Landing page hero |
-| 11 | Pitch deck theme |
-| 12 | Cloudflare Workers Launchpad one-pager |
+| 9 | Experience principles |
+| 10 | GitHub banner |
+| 11 | Landing page hero |
+| 12 | Pitch deck theme |
+| 13 | Cloudflare Workers Launchpad one-pager |
 
 ## Folder Map
 
@@ -69,7 +72,7 @@ The compiler, TypeGraph, DI rules, and internal verification model are the moat.
 | `logo/` | Logo aliases, mark assets, app icon, and deploy button assets. |
 | `colors/` | Official CSS and JSON tokens plus usage rules. |
 | `typography/` | Instrument Sans, Commit Mono, and type scale guidance. |
-| `ui/` | Product component guidance and interactive webview snippets taken from the Demo and find.how. |
+| `ui/` | Product component guidance, experience principles, and interactive webview snippets taken from the Demo and find.how. |
 | `code-style/` | Canonical checkout route, snippet rules, terminal copy rules. |
 | `demo/` | One-minute demo script and demo beats. |
 | `assets/` | Landing, social, GitHub, Open Graph, launchpad, docs, and pitch-deck source assets. |
@@ -92,3 +95,15 @@ The compiler, TypeGraph, DI rules, and internal verification model are the moat.
 5. AI/control plane
 
 Keep those two orders separate. The internal truth is how Pioneer works. The public story is why developers care.
+
+## Experience Rules
+
+Use `ui/experience-principles.md` when reviewing product UI, docs pages, social assets, or launch material.
+
+The short version:
+
+1. Signal what can be clicked, copied, selected, disabled, or run.
+2. Put code, terminal output, service inference, and final response above generic illustration.
+3. Use color for meaning: green for Pioneer action/success, gold for Cloudflare/deploy context, blue for logs/responses, amber for warning, red for failure.
+4. Give every interaction an immediate state response.
+5. Keep work surfaces compact, scannable, and quiet.

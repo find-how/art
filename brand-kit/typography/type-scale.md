@@ -9,4 +9,10 @@
 | Small UI | 12-14px | 650-800 | Labels, badges, tabs, metrics. |
 | Code | 13-15px | 400-650 | Editor and terminal surfaces. |
 
-Do not scale font size directly with viewport width. Use responsive steps and layout constraints.
+## Rules
+
+- Keep letter spacing at `0`.
+- Do not scale font size directly with viewport width.
+- Use responsive steps and layout constraints instead of fluid text in dense tools.
+- Keep panel, dashboard, editor, and terminal headings compact.
+- Reserve hero-scale type for first-viewport product and launch pages.

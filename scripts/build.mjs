@@ -1,5 +1,6 @@
 import { cp, mkdir, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { setTimeout as wait } from "node:timers/promises";
 import { fileURLToPath } from "node:url";
 import { brandConfig } from "../src/brand-config.js";
 
@@ -7,6 +8,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(root, "dist");
 const publicDir = path.join(root, "public");
 const assetsDir = path.join(distDir, "assets");
+const buildLockDir = path.join(root, ".wrangler", "brand-build.lock");
 
 const rootAssetFiles = [
   "README.md",
@@ -39,6 +41,35 @@ function slug(value) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+}
+
+async function acquireBuildLock() {
+  await mkdir(path.dirname(buildLockDir), { recursive: true });
+
+  for (let attempt = 0; attempt < 240; attempt += 1) {
+    try {
+      await mkdir(buildLockDir);
+      return async () => {
+        await rm(buildLockDir, { recursive: true, force: true });
+      };
+    } catch (error) {
+      if (error?.code !== "EEXIST") throw error;
+
+      try {
+        const details = await stat(buildLockDir);
+        if (Date.now() - details.mtimeMs > 120_000) {
+          await rm(buildLockDir, { recursive: true, force: true });
+          continue;
+        }
+      } catch (statError) {
+        if (statError?.code !== "ENOENT") throw statError;
+      }
+
+      await wait(125);
+    }
+  }
+
+  throw new Error("Timed out waiting for the brand build lock.");
 }
 
 function titleize(value) {
@@ -372,17 +403,23 @@ async function renderSocialPng() {
 }
 
 async function build() {
-  await rm(distDir, { recursive: true, force: true });
-  await mkdir(distDir, { recursive: true });
-  await cp(publicDir, distDir, { recursive: true });
-  await copyAssetSources();
-  await renderSocialPng();
+  const releaseLock = await acquireBuildLock();
 
-  const manifest = await buildManifest();
-  await writeFile(path.join(assetsDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
-  await writeFile(path.join(distDir, "brand.json"), `${JSON.stringify(brandConfig, null, 2)}\n`);
+  try {
+    await rm(distDir, { recursive: true, force: true });
+    await mkdir(distDir, { recursive: true });
+    await cp(publicDir, distDir, { recursive: true });
+    await copyAssetSources();
+    await renderSocialPng();
 
-  console.log(`Built ${manifest.counts.assets} assets into ${path.relative(root, distDir)}`);
+    const manifest = await buildManifest();
+    await writeFile(path.join(assetsDir, "manifest.json"), `${JSON.stringify(manifest, null, 2)}\n`);
+    await writeFile(path.join(distDir, "brand.json"), `${JSON.stringify(brandConfig, null, 2)}\n`);
+
+    console.log(`Built ${manifest.counts.assets} assets into ${path.relative(root, distDir)}`);
+  } finally {
+    await releaseLock();
+  }
 }
 
 build().catch((error) => {
