@@ -20,5 +20,9 @@
   "devDependencies": {
     "sharp": "^0.34.5",
     "wrangler": "^4.15.2"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.4.3"
   }
 }

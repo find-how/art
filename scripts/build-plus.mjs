@@ -492,6 +492,8 @@ a { color: inherit; text-decoration: none; }
   padding: 0.38rem 0.64rem;
 }
 .tab[aria-selected="true"] { background: #fff; color: var(--green); box-shadow: 0 2px 8px rgba(22, 26, 23, 0.08); }
+.tab[aria-pressed="true"] { background: #fff; color: var(--green); box-shadow: 0 2px 8px rgba(22, 26, 23, 0.08); }
+.tab:disabled { cursor: not-allowed; opacity: 0.45; }
 .preview-frame {
   display: block;
   width: 100%;
@@ -500,6 +502,63 @@ a { color: inherit; text-decoration: none; }
   background: #fff;
 }
 .preview-frame.mobile { max-width: 390px; min-height: 760px; margin: 1rem auto; border: 1px solid var(--line); border-radius: 18px; }
+.code-viewer {
+  display: grid;
+  min-width: 0;
+  background: #0a0d0b;
+}
+.code-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 44px;
+  border-bottom: 1px solid #26352a;
+  background: #111713;
+  color: #a5dbb7;
+  padding: 0.45rem 0.55rem 0.45rem 0.8rem;
+}
+.code-meta {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.55rem;
+  color: #a5dbb7;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.76rem;
+  font-weight: 760;
+}
+.code-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #4a9d5f;
+  box-shadow: 0 0 0 4px rgba(74, 157, 95, 0.16);
+}
+.code-copy-button {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #344439;
+  border-radius: 6px;
+  background: #18231b;
+  color: #e7f3e4;
+  cursor: pointer;
+}
+.code-copy-button:hover:not(:disabled) {
+  border-color: #67b578;
+  background: #203124;
+}
+.code-copy-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+}
+.code-copy-button svg {
+  width: 17px;
+  height: 17px;
+}
 .code {
   overflow: auto;
   max-height: 720px;
@@ -509,7 +568,29 @@ a { color: inherit; text-decoration: none; }
   padding: 1rem;
 }
 .code code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; font-size: 0.82rem; line-height: 1.6; white-space: pre; }
+.token-comment { color: #728174; }
+.token-keyword { color: #7dd3fc; }
+.token-string { color: #d9a441; }
+.token-number, .token-literal { color: #a5dbb7; }
+.token-tag { color: #86efac; }
 .empty { padding: 2rem; color: var(--muted); }
+.toast {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 40;
+  max-width: min(360px, calc(100vw - 32px));
+  border: 1px solid #2d3b31;
+  border-radius: 7px;
+  background: #161a17;
+  color: #fff;
+  opacity: 0;
+  padding: 0.75rem 0.9rem;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+.toast.visible { opacity: 1; transform: translateY(0); }
 @media (max-width: 980px) {
   .layout, .browser, .hero, .controls { grid-template-columns: 1fr; }
   .sidebar { position: static; max-height: none; }
@@ -528,7 +609,9 @@ a { color: inherit; text-decoration: none; }
   format: "preview",
   mobile: false,
   selectedId: null,
-  selected: null
+  selected: null,
+  codeCache: new Map(),
+  toastTimer: null
 };
 
 const app = document.querySelector("#plusApp");
@@ -538,6 +621,124 @@ function el(tag, className, text) {
   if (className) node.className = className;
   if (text !== undefined) node.textContent = text;
   return node;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function languageForFormat(format) {
+  if (format === "react") return "JSX";
+  if (format === "vue") return "Vue";
+  return "HTML";
+}
+
+function codeExtension(format, details) {
+  if (details?.extension) return "." + details.extension;
+  if (format === "react") return ".jsx";
+  if (format === "vue") return ".vue";
+  return ".html";
+}
+
+function highlightCode(source, format) {
+  const keywords = new Set([
+    "await", "async", "break", "case", "catch", "class", "const", "continue", "default", "do", "else", "export",
+    "for", "from", "function", "if", "import", "in", "let", "new", "of", "return", "switch", "throw", "try",
+    "typeof", "var", "while", "with"
+  ]);
+  const literals = new Set(["false", "null", "true", "undefined"]);
+  const tokenPattern = new RegExp("<!--[\\\\s\\\\S]*?-->|/\\\\*[\\\\s\\\\S]*?\\\\*/|//[^\\\\n]*|</?[A-Za-z][^<>]*>|([\\\"'\\\\x60])(?:\\\\\\\\[\\\\s\\\\S]|(?!\\\\1)[\\\\s\\\\S])*?\\\\1|\\\\b[A-Za-z_$][\\\\w$]*\\\\b|\\\\b\\\\d+(?:\\\\.\\\\d+)?\\\\b", "g");
+  let cursor = 0;
+  let html = "";
+
+  source.replace(tokenPattern, (match, quote, offset) => {
+    html += escapeHtml(source.slice(cursor, offset));
+    let tokenClass = "";
+
+    if (match.startsWith("<!--") || match.startsWith("/*") || match.startsWith("//")) {
+      tokenClass = "token-comment";
+    } else if (match.startsWith("<")) {
+      tokenClass = "token-tag";
+    } else if (quote) {
+      tokenClass = "token-string";
+    } else if (keywords.has(match)) {
+      tokenClass = "token-keyword";
+    } else if (literals.has(match)) {
+      tokenClass = "token-literal";
+    } else if (/^\\d/.test(match)) {
+      tokenClass = "token-number";
+    }
+
+    html += tokenClass ? '<span class="' + tokenClass + '">' + escapeHtml(match) + "</span>" : escapeHtml(match);
+    cursor = offset + match.length;
+    return match;
+  });
+
+  return html + escapeHtml(source.slice(cursor));
+}
+
+function showToast(message) {
+  let toast = document.querySelector("#plusToast");
+  if (!toast) {
+    toast = el("div", "toast");
+    toast.id = "plusToast";
+    toast.setAttribute("role", "status");
+    toast.setAttribute("aria-live", "polite");
+    document.body.append(toast);
+  }
+
+  toast.textContent = message;
+  toast.classList.add("visible");
+  window.clearTimeout(state.toastTimer);
+  state.toastTimer = window.setTimeout(() => toast.classList.remove("visible"), 1600);
+}
+
+async function copyText(value) {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(value);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = value;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.append(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    }
+
+    showToast("Code copied");
+  } catch {
+    showToast("Clipboard unavailable");
+  }
+}
+
+function sourceCacheKey(component, format) {
+  return component.id + ":" + format;
+}
+
+async function loadSource(component, formatId) {
+  const key = sourceCacheKey(component, formatId);
+  if (state.codeCache.has(key)) return state.codeCache.get(key);
+
+  const format = component.formats[formatId];
+  const response = await fetch(format.url);
+  if (!response.ok) throw new Error("Source unavailable");
+
+  const source = await response.text();
+  state.codeCache.set(key, source);
+  return source;
+}
+
+function clipboardIcon() {
+  return '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>';
 }
 
 async function loadCatalog() {
@@ -641,6 +842,18 @@ function componentList() {
   return list;
 }
 
+function syncTabs(tabs) {
+  tabs.querySelectorAll("[data-format-tab]").forEach((tab) => {
+    tab.setAttribute("aria-selected", String(tab.dataset.formatTab === state.format));
+  });
+
+  const mobile = tabs.querySelector("[data-mobile-tab]");
+  if (mobile) {
+    mobile.disabled = state.format !== "preview";
+    mobile.setAttribute("aria-pressed", String(state.mobile && state.format === "preview"));
+  }
+}
+
 function formatTabs(component) {
   const tabs = el("div", "tabs");
   const available = [];
@@ -654,27 +867,32 @@ function formatTabs(component) {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "tab";
+    button.dataset.formatTab = format;
     button.setAttribute("aria-selected", String(state.format === format));
     button.textContent = label;
     button.addEventListener("click", () => {
       state.format = format;
       renderViewerBody(component);
-      tabs.querySelectorAll(".tab").forEach((tab) => tab.setAttribute("aria-selected", String(tab === button)));
+      syncTabs(tabs);
     });
     tabs.append(button);
   });
 
-  const mobile = document.createElement("button");
-  mobile.type = "button";
-  mobile.className = "tab";
-  mobile.setAttribute("aria-selected", String(state.mobile));
-  mobile.textContent = "Mobile";
-  mobile.addEventListener("click", () => {
-    state.mobile = !state.mobile;
-    renderViewerBody(component);
-    mobile.setAttribute("aria-selected", String(state.mobile));
-  });
-  tabs.append(mobile);
+  if (component.previewUrl) {
+    const mobile = document.createElement("button");
+    mobile.type = "button";
+    mobile.className = "tab";
+    mobile.dataset.mobileTab = "true";
+    mobile.setAttribute("aria-pressed", String(state.mobile && state.format === "preview"));
+    mobile.disabled = state.format !== "preview";
+    mobile.textContent = "Mobile";
+    mobile.addEventListener("click", () => {
+      state.mobile = !state.mobile;
+      renderViewerBody(component);
+      syncTabs(tabs);
+    });
+    tabs.append(mobile);
+  }
 
   return tabs;
 }
@@ -699,13 +917,45 @@ async function renderViewerBody(component) {
     return;
   }
 
-  const response = await fetch(format.url);
-  const code = response.ok ? await response.text() : "Source unavailable.";
+  const formatId = state.format;
+  const viewer = el("div", "code-viewer");
+  const toolbar = el("div", "code-toolbar");
+  const meta = el("div", "code-meta");
+  meta.innerHTML =
+    '<span class="code-dot" aria-hidden="true"></span><span>' +
+    languageForFormat(formatId) +
+    " source</span><span>" +
+    codeExtension(formatId, format) +
+    "</span>";
+
+  const copyButton = document.createElement("button");
+  copyButton.type = "button";
+  copyButton.className = "code-copy-button";
+  copyButton.disabled = true;
+  copyButton.setAttribute("aria-label", "Copy " + languageForFormat(formatId) + " source");
+  copyButton.innerHTML = clipboardIcon();
+  toolbar.append(meta, copyButton);
+
   const pre = el("pre", "code");
+  pre.tabIndex = 0;
   const codeNode = document.createElement("code");
-  codeNode.textContent = code;
+  codeNode.textContent = "Loading source...";
   pre.append(codeNode);
-  body.append(pre);
+  viewer.append(toolbar, pre);
+  body.append(viewer);
+
+  try {
+    const source = await loadSource(component, formatId);
+    if (state.selectedId !== component.id || state.format !== formatId) return;
+    codeNode.innerHTML = highlightCode(source, formatId);
+    copyButton.disabled = false;
+    copyButton.addEventListener("click", () => copyText(source));
+  } catch (error) {
+    console.error(error);
+    if (state.selectedId !== component.id || state.format !== formatId) return;
+    codeNode.textContent = "Source unavailable.";
+    showToast("Source unavailable");
+  }
 }
 
 function viewer() {

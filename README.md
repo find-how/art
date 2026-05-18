@@ -87,7 +87,25 @@ npm run plus:import
 npm run dev
 ```
 
-The importer reads `~/Downloads/marketinguiv4` and `~/Downloads/appuiv4` by default. Local dev builds and exposes `/plus/` automatically, and the main brand kit shows a Plus UI link when the private catalog is reachable. Generated Plus output is not part of the normal public build. Production access to `/plus/*` and `/api/plus/catalog.json` must stay behind Cloudflare Access; `npm run deploy:plus` injects the required `PLUS_COMPONENTS_ENABLED:true` Worker var.
+The importer reads `~/Downloads/marketinguiv4` and `~/Downloads/appuiv4` by default. Local dev builds and exposes `/plus/` automatically, and the main brand kit shows a Plus UI link when the private catalog is reachable. Generated Plus output is not part of the normal public build. Production access to `/plus/*`, `/api/plus/*`, and private Plus MCP tools must stay behind Cloudflare Access; `npm run deploy:plus` injects the required `PLUS_COMPONENTS_ENABLED:true` Worker var.
+
+The Plus browser includes Preview, HTML, React, and Vue tabs. Source tabs render a lightweight read-only syntax-highlighted editor frame with a one-click clipboard button that copies the exact generated source.
+
+## Brand API And MCP
+
+The Worker exposes public brand context and private Plus component APIs for automation:
+
+| Route | Use |
+|------|-----|
+| `/api/brand/context` | Agent-ready positioning, colors, typography, asset URLs, UI principles, deploy actions, and Plus entrypoints. |
+| `/api/assets` | Generated public brand asset manifest. |
+| `/api/plus/components` | Private searchable Plus component catalog. |
+| `/api/plus/source?id=<id>&format=react` | Private raw Plus component source. |
+| `/mcp` | Streamable HTTP MCP endpoint for agents using `brand_get_context`, asset tools, and gated Plus component tools. |
+
+The MCP endpoint is intended to let coding agents build Pioneer frontends from `brand.find.how` context: logos, icons, URLs, colors, typography, fonts, buttons, marketing components, and application components. Public brand tools are available broadly; Plus tools reuse the same private access gate as `/plus/`.
+
+For component generation, agents should call `plus_find_component_code` first with a natural-language request such as "a hero for a launch page", "a sidebar shell for a dashboard", or "a pricing section for the marketing page". The tool ranks the private Pioneer-branded Tailwind Plus catalog, returns the best matching React, Vue, or HTML source, and includes alternative matches for fallback. Lower-level `plus_search_components` and `plus_get_component_source` remain available when an agent already knows the exact category or component id.
 
 ## Go-To-Market Source Assets
 
